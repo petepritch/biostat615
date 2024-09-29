@@ -1,0 +1,21 @@
+ue to doubles: *Inf*, *-Inf*, and *NaN*
+  - Integers are written similarly to doubles but must be followed *L* and cannot contain fractional values
+  - Strings surrounded by *""* or *''*
+
+*** 3.2.2 Making long vectors with c()
+
+- To create longer vectors from shorter ones, use c(), short for combine
+
+#+begin_src R
+lgl_var <- c(TRUE, FALSE)
+int_var <- c(1L, 2L, 3L)
+dbl_var <- c(1, 2.5, 4.5)
+chr_var <- c("my name", "is pete")
+#+end_src
+
+- When the iputs are atomic vectors, *c()* always creaes another atomic vector
+
+*** 3.2.3 Missing Values
+
+- Missing or unknown values, *NA*
+- These values tend to be infectious: most computations involving a missing value will return another missing value

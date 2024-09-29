@@ -1,0 +1,349 @@
+#+title: BIOSTAT 615 Notes
+#+description: Organization File For BIOSTATS 615 @ The University of Michigan, Ann Arbor
+#+author: Pete Pritchard
+
+* Course Logistics
+
+** Class Times:
+
+- M/W 8:30am-10am, 1690 SPH I
+
+** Intructor: Hyun Ming Kan
+
+- email: hmkang@umich.edu
+- Office Hours:
+  - Monday 9:50am - 10:30am, 4623 SPH I Tower
+  - Wednesday 9:50am - 10:30am, 4623 SPH I Tower
+
+** GSI: Longhao Pang
+
+- email: lhpang@umich.edu
+- Office Hours:
+  - Tuesday 3-4:30 M4117 SPH II
+
+* Important Dates
+** DONE Topic 0 Review Quiz Due
+SCHEDULED: <2024-08-28 Wed>
+** DONE Learning Exercise #1
+SCHEDULED: <2024-09-03 Tue>
+** DONE Learning Exercise #2, Mastery Assigment #1
+SCHEDULED: <2024-09-10 Tue>
+** TODO Group Project Proposals
+SCHEDULED: <2024-10-11 Fri>
+** TODO Group Project Progress Reporto
+SCHEDULED: <2024-11-08 Fri>
+** TODO Midterm Exam
+SCHEDULED: <2024-11-25 Mon>
+** TODO Final Project Presentation Slides
+SCHEDULED: <2024-12-03 Tues>
+** TODO Final Project Presentations 1
+SCHEDULED: <2024-12-04 Wed>
+** TODO Final Project Presentations 2
+SCHEDULED: <2024-12-09 Mon>
+** TODO Final Report and Software Package
+SCHEDULED: <2024-12-13>
+
+* Lecture 1 08-26
+
+** Primarily a couse logistics and syllabus overview.
+
+* Lecture 2 8-28 | Numerical Precision and Relative Error
+
+** Computer representation of numbers
+
+- Computer operations must work with representation of numbers that accomplished by transitors
+  - Transitor: a miniature semiconductor that regulates or controls current or voltage flow in addition to amplifying and generating these eletrical signals and acting as as switch/gate for them
+  - CPU and RAM
+  - Amount of information that can be stored is limited by the amount of size of transitor (storage)
+- Two possible states: *off* and *on*
+- Number of transitors is finite... can be up to a billion
+- To manage overall memory effectively,
+  - Restrict the amount of memory that can be allocated to different kinds of numbers
+- In the decimal system, numerical values are represented in units or powers of 10
+- For a nonnegative integer /k/
+  \[
+  k = \sum{j=0}{m}a_{j}(10)^{j}, k = (a_{m}a_{m-1} \dots a_{0})_{10}
+  \]
+  where
+- For example,
+
+#+begin_src R
+intToBits(127)
+intToBits(128)
+#+end_src
+
+#+RESULTS:
+
+** Bit and Byte
+
+- *Bit*: the basic unit of information in computing and digital communications
+- *Byte*: a unit of storing digital information in memory, consisting of *eight bits*
+ op- The connection between *machine memory* and *computer arithmetic*:
+  - Bits <-> Transitors, Bytes <-> Blocks of 8 Transitors
+- Integer in memory:
+  - Binary representation created by:
+    - allocating it a block of memory
+    - idenifying the individual transitors in the block with a power 2 from its binary representation
+    - turning on those transitors that correspond to powers of 2 that have unit (1) coefficients
+  - Let's look at *2024* again
+    - We need *11* bits to hold integer *2024*
+    - *11* bits are needed, so *1* byte is not enough, at least *2* bytes
+- More on bytes:
+  - A document, image, movie,... how many bytes?
+  - *1* byte can hold a letter / character
+    - KB = 1 thousand bytes
+    - MB = 1 million bytes
+    - GB = 1 billion bytes
+    - TB = 1 trillion bytes
+    - PB = 1 quadrillion bytes
+
+#+begin_src R
+s = 2000000000
+
+print(s)
+
+print(s+s)
+
+# What do you expect to be printed?
+#+end_src
+
+#+begin_src R
+s = 2000000000L
+
+print(s)
+
+print(s+s)
+
+# What do you expect to be printed?
+#+end_src
+
+#+begin_src R
+noquote(format(.Machine))
+#+end_src
+
+- .Machine contains a list of machine precision and limit values
+- format(.) displays a list in a tabular format string
+- noquote(.)
+
+** R Storage
+
+- Primative data types in R
+  1. character: 8 bytes
+  2. double: numeric: 8 bytes
+  3. integer: 4 bytes
+  4. logical: 4 bytes
+
+- The most basic data structure in *R* is an array comprised of one of the primitive data types that is referred to as an /atomic vector/
+- Use the *storage.mode* to access the storage mode of a given object
+- Use the *object.size* to obtain the memory allocation of an R object
+- Machine specific detauls cocnerning storage, etc. are held in the *R* list variable *.machine*
+
+** Floating point representation
+
+- *Q*: Can a computer precisely store an irrational number? Why?
+  - *A*: There is a limit to the precision that can be acheived.
+
+** Errors
+
+*** Relative erros in double precision
+
+- Upper bound of relative erross: /(/ 2^{-(m+1)} ) where /m/ is the signficand bits
+- For relative precision (double) /m/ = 52
+- The relative error of double precision is
+  \begin{equation}
+
+  \end{equation}
+
+
+* Lecture 3 9-04 | Numerical Precision and Relatove Error Cont.
+
+** Quick notes:
+
+- For the mastery assignements there will be no test cases to check like with the learning asssignments
+- However, there will be a google collab file that will help you test and debug
+- Unlimited submissions just like learning assignment
+
+** Precision errors with quadratic equation
+
+- The challange: (/ | 4b_{2}b_{0} | << b^{2}_{2} /)
+- Not accurate in terms in relative error in some cases
+
+** West Algorithm
+
+*** Algorithms (def)
+
+- loose definition: a sequence of well-defined computational steps
+- takes a set of values
+- produces a set of values
+
+*** Key features of a good algorithm
+
+- Correctness
+- Efficiency
+- Simplicity
+
+***
+
+* Lecture 4 9-09 | Divide & Conquer
+
+** Time Complexity
+
+- Why is it important?
+  - Suppose that I have an algoroithm that takes 1 second for n=1000 sample size
+  - If the algorithm has linear time complexity....
+    - 1 million, 17 minutes
+    - 1 billion, 12 days....
+  - If the algorithm has quadratic time complexity...
+    - 50000 samples, 42 minutes
+    - 1 million samples, 12 days
+    - 1 billion, 31000 years
+  - In log time complexity...
+    - For 1 billion samples, 20 seconds
+
+- Big O notation (upper bounded)
+  - This is what we care abou the most... worst case performance
+- Big Omega notation (lower bounded)
+- Big Theta notation (tight bound)
+  - For most of this class, we will use Big Theta notation
+
+** Recursion
+
+- Key components
+  - A function that is part of its own definition
+  - Terminating condition
+
+- Tower of Hanoi
+
+** Divide and Conquer Algorithm
+
+- Solve a problem recursively, applying three steps at each level of recursion
+
+  1. *Divide*: the problem into a number of subproblems that are smaller instances of the same problem
+  2. *Conquer*: the subproblems by solving them recursively. If the subproblem sizes are small enough, however, just solve the problems in a straightforward manner
+  3. *Combine*: the solutions to subproblems into the solution for the original problem
+
+*** Insertion Sort
+
+- For k-th step, assume that elements a[1], ... , a[k-1] are already sorted in order.
+- Locate a[k] between index 1, ... ,k so that all a[1], ..., a[k] are in order
+- Move the focus to k+1-th element and repeat the same step
+
+
+*** Merge Sort
+
+- Concept behind merge sort is relatively simple
+- Keep splitting the array into halves until each subarray is size 1
+- Then recursively merge two subarrays at a time
+- Time complexity: *O(nlogn)*
+
+Two functions are needed to accomplish this
+#+begin_src R
+#' merge() : merge two sorted vectors in O(n)
+#' @param a - A sorted numeric vector
+#' @param b - Another sorted numeric vector
+#' @return A sorted vector merging a and b
+merge = function(a,b) {
+    r = numeric(length(a)+length(b)) # make an empty vector
+    i=1; j=1 # i and j are indices for a and b
+    for(k in 1:length(r)) {
+      ## if b is used up or a[i] < b[j], copy from a
+      if ( ( j > length(b) ) || ( i <= length(a) && a[i]<b[j] ) ) {
+        r[k] = a[i]
+        i = i + 1
+      } else {  ## otherwise, copy from b
+        r[k] = b[j]
+        j = j + 1
+      }
+    }
+    return(r) ## return the merged vector
+}
+
+#' mergeSort() : sort an array in O(n log n)
+#' @param x A unsorted numeric vector
+#' @return A sorted version of x
+mergeSort = function(x) {
+    if(length(x)>1) {   ## if the element size is greater than 1, keep dividing
+        mid = ceiling(length(x)/2)          # find the midpoint
+        a = mergeSort(x[1:mid])             # divide - part 1
+        b = mergeSort(x[(mid+1):length(x)]) # divide - part 2
+        return( merge(a,b) )                # combine the sorted solutions - to me implemented
+    } else {  # terminating condition - only 1 element left
+        return (x)
+    }
+}
+#+end_src
+
+- most of the lower level languages are using quick sort
+
+
+* Lecture 5 | Matrix Computation
+
+** Algorithms for matrix computation
+
+- Why do matrices matter?
+  - Many statistical models can be represented as matrices
+  - Efficeient matric computation can make a difference in the practicality of a method
+  - Understanding R implementation of matrix operation can expedite the efficiency by orders of magnitude
+
+- Time compexity is not everything
+  - Explains how scalable the algorithm is relative to the increase in the size of input data
+  - The *absolute* computational time on an algorithm may depend on the implementation details
+  - For example, using a loop inside of R is not usually recommended... slows down implementation by quite a bit
+
+* Lecture 6 | Matrix Computation cont.
+
+** BLAS/LAPACK
+
+- BLAS: implements low-level routines for linear algebra
+- LAPACK: implements key algorithms for linear algebra such as matrix decomposition and linear systems solver
+- Why are they so fast?
+
+  1. Vectorization
+  2. Multithreading
+  3. Cache Optimization
+
+- Important to be able to recognize when matrix multiplication is computationally expensive
+- ORDER MATTERS!
+
+** Quadratic multiplication
+
+- Consider computing $x'Ax$ where $A=LL'$ (Cholesky decomposition)
+- $u=L'x$ can be computed more efficiently than $Ax$
+- $x'Ax=u'u$
+
+** Matrix decompisition and solving linear systems
+
+* Assignments:
+
+** Learning Ex. 1:
+
+- `intToBits()` converts to 64-bit by default AND in reversed order. In order to complete this task we need to reverse the order of the vector and remove every even element.
+- This can be completed to satisfaction with brute force by following this logic:
+  - Check if passed-value is an integer, check if passed-value is numeric (numeric values are 64-bit in base R), check if passed-value is within the bounds of a 32-bit integer value. IF any of these conditions are met, then we want the function to return NA. Otherwise...
+  - Convert to bits -> collapse vector into str -> re-vectorize with each int as its own index -> reverse the vector -> remove the even elements -> collapse vector into string again.
+- That said, we want to find a more efficient way to solve this.
+- R base has only one numeric (float) type which is 64 bit.
+
+** Code
+
+#+BEGIN_SRC R
+int2BinaryStr <- function(n) {
+  if (!is.numeric(n) || floor(n) != n || n < -2^31 || n > 2^31 - 1) {
+    return(NA)
+  }
+
+  binary_str <- past(rev(as.integer(intToBits(as.integer(n)))), collaple=""")
+
+  return(binary_str)
+}
+#+END_SRC
+
+*** Code Breakdown
+- r{!is.numeric(n)}: checking if number is not a numeric. Base R treats numeric values as 64-bit
+- r{floor(n) != n}: checking if n is not an integer
+- r{n < -2^32 || n > 2^31}: checks if n is within the range of 32-bit integer values
+
+
+** Learning Ex. 2:
+
+** Code
