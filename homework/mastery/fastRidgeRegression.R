@@ -11,13 +11,26 @@
 #'         coefficeint estiamtes are zero, then there will be no row in the returned
 #'         data frame.
 fastRidgeRegression <- function(X, Y, lambda) {
-  # Dimension of X
+  # Dimension of design matrix
   X_dim <- dim(X)
-  # Need to solve this different ways depedning on the dimension of X
   if (X_dim[1] > p) { # Cholesky
-
+    # Compute A
+    A <- crossprod(X) + crossprod(lambda, diag(X_dim[2]))
+    # Compute B
+    b <- crossprod(X, y)
+    # Decompose A
+    U <- chol(A)
+    # Foward substitution
+    z <- fowardsolve(U, A, upper.tri=TRUE, transpose=TRUE)
+    # Backward substitution and return result
+    return(backsolve(U, z))
   } else { # Some other way
 
+    K <- X %*% t(T)
+
+    alpha <- solve(K + crossprod(lambda, diag(X_dim[2])), y)
+
+    beta <- t(X) %*% alpha
   }
 
   return()
