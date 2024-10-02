@@ -3,8 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-10-01 Tue 20:27 -->
-<meta charset="UTF-8">
+<!-- 2024-10-02 Wed 09:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>BIOSTAT 615 Notes</title>
@@ -52,93 +51,84 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org249c8be">Course Logistics</a>
+<li><a href="#org6b4099e">Course Logistics</a>
 <ul>
-<li><a href="#org0243816">Class Times:</a></li>
-<li><a href="#orgd2012dd">Intructor: Hyun Ming Kan</a></li>
-<li><a href="#org0dc4c95">GSI: Longhao Pang</a></li>
+<li><a href="#org6dbfa1d">Class Times:</a></li>
+<li><a href="#orge13e347">Intructor: Hyun Ming Kan</a></li>
+<li><a href="#orgba5c961">GSI: Longhao Pang</a></li>
 </ul>
 </li>
-<li><a href="#orgfa4d5ba">Important Dates</a>
+<li><a href="#orga62c695">Lecture 1 08-26</a>
 <ul>
-<li><a href="#org45d0834"><span class="done DONE">DONE</span> Topic 0 Review Quiz Due</a></li>
-<li><a href="#org197c3b9"><span class="done DONE">DONE</span> Learning Exercise #1</a></li>
-<li><a href="#org749ebb6"><span class="done DONE">DONE</span> Learning Exercise #2, Mastery Assigment #1</a></li>
-<li><a href="#org1df2a33"><span class="todo TODO">TODO</span> Group Project Proposals</a></li>
-<li><a href="#orge127cd6"><span class="todo TODO">TODO</span> Group Project Progress Reporto</a></li>
-<li><a href="#orgd5df3d7"><span class="todo TODO">TODO</span> Midterm Exam</a></li>
-<li><a href="#org8fe9a18"><span class="todo TODO">TODO</span> Final Project Presentation Slides</a></li>
-<li><a href="#orgef6381a"><span class="todo TODO">TODO</span> Final Project Presentations 1</a></li>
-<li><a href="#orga80a337"><span class="todo TODO">TODO</span> Final Project Presentations 2</a></li>
-<li><a href="#orgd49b562"><span class="todo TODO">TODO</span> Final Report and Software Package</a></li>
+<li><a href="#org42f855b">Primarily a couse logistics and syllabus overview.</a></li>
 </ul>
 </li>
-<li><a href="#orgd42f13f">Lecture 1 08-26</a>
+<li><a href="#orgc37906f">Lecture 2 8-28 | Numerical Precision and Relative Error</a>
 <ul>
-<li><a href="#org1470e47">Primarily a couse logistics and syllabus overview.</a></li>
+<li><a href="#orgbecef96">Computer representation of numbers</a></li>
+<li><a href="#org0691435">Bit and Byte</a></li>
+<li><a href="#org7c5fadc">R Storage</a></li>
+<li><a href="#org0eaa8aa">Floating point representation</a></li>
+<li><a href="#orgb328d48">Errors</a></li>
 </ul>
 </li>
-<li><a href="#org7b1620d">Lecture 2 8-28 | Numerical Precision and Relative Error</a>
+<li><a href="#org70489b6">Lecture 3 9-04 | Numerical Precision and Relatove Error Cont.</a>
 <ul>
-<li><a href="#orgf4ce10b">Computer representation of numbers</a></li>
-<li><a href="#orgf266e0a">Bit and Byte</a></li>
-<li><a href="#org3399cb1">R Storage</a></li>
-<li><a href="#orgfce2bfc">Floating point representation</a></li>
-<li><a href="#orge467ce5">Errors</a></li>
+<li><a href="#org5b45cf4">Quick notes:</a></li>
+<li><a href="#org6d4c4b0">Precision errors with quadratic equation</a></li>
+<li><a href="#org5f849dc">West Algorithm</a></li>
 </ul>
 </li>
-<li><a href="#org25b7d41">Lecture 3 9-04 | Numerical Precision and Relatove Error Cont.</a>
+<li><a href="#org056cb15">Lecture 4 9-09 | Divide &amp; Conquer</a>
 <ul>
-<li><a href="#org718822a">Quick notes:</a></li>
-<li><a href="#orga6a3ad0">Precision errors with quadratic equation</a></li>
-<li><a href="#orga387233">West Algorithm</a></li>
+<li><a href="#orgca527e1">Time Complexity</a></li>
+<li><a href="#orgf691c41">Recursion</a></li>
+<li><a href="#orgdc87812">Divide and Conquer Algorithm</a></li>
 </ul>
 </li>
-<li><a href="#orge255f80">Lecture 4 9-09 | Divide &amp; Conquer</a>
+<li><a href="#org4f66b29">Lecture 5 | Matrix Computation</a>
 <ul>
-<li><a href="#org675b65f">Time Complexity</a></li>
-<li><a href="#org1bc18ff">Recursion</a></li>
-<li><a href="#org17e4b13">Divide and Conquer Algorithm</a></li>
+<li><a href="#org0217c0e">Algorithms for matrix computation</a></li>
 </ul>
 </li>
-<li><a href="#org66dfc21">Lecture 5 | Matrix Computation</a>
+<li><a href="#orgbcb92d1">Lecture 6 | Matrix Computation cont.</a>
 <ul>
-<li><a href="#orgb2d42b8">Algorithms for matrix computation</a></li>
+<li><a href="#orgccd94e6">BLAS/LAPACK</a></li>
+<li><a href="#orgea784b1">Quadratic multiplication</a></li>
+<li><a href="#orgf99efde">Matrix decompisition and solving linear systems</a></li>
 </ul>
 </li>
-<li><a href="#orgf12643c">Lecture 6 | Matrix Computation cont.</a>
+<li><a href="#orgb4df708">Single Dimension Optimization Methods</a>
 <ul>
-<li><a href="#orgf6100b3">BLAS/LAPACK</a></li>
-<li><a href="#org905da41">Quadratic multiplication</a></li>
-<li><a href="#org5202d6e">Matrix decompisition and solving linear systems</a></li>
+<li><a href="#org0fdfc41">Root Finding</a></li>
 </ul>
 </li>
-<li><a href="#orgce65f82">Assignments:</a>
+<li><a href="#orge234ff3">Assignments:</a>
 <ul>
-<li><a href="#orgbc2d9cd">Learning Ex. 1:</a></li>
-<li><a href="#org6566acb">Code</a></li>
-<li><a href="#org09de879">Learning Ex. 2:</a></li>
-<li><a href="#orgd81c1a9">Code</a></li>
+<li><a href="#org22dfb46">Learning Ex. 1:</a></li>
+<li><a href="#org5c74076">Code</a></li>
+<li><a href="#org9ed30b9">Learning Ex. 2:</a></li>
+<li><a href="#org0539827">Code</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org249c8be" class="outline-2">
-<h2 id="org249c8be">Course Logistics</h2>
-<div class="outline-text-2" id="text-org249c8be">
+<div id="outline-container-org6b4099e" class="outline-2">
+<h2 id="org6b4099e">Course Logistics</h2>
+<div class="outline-text-2" id="text-org6b4099e">
 </div>
-<div id="outline-container-org0243816" class="outline-3">
-<h3 id="org0243816">Class Times:</h3>
-<div class="outline-text-3" id="text-org0243816">
+<div id="outline-container-org6dbfa1d" class="outline-3">
+<h3 id="org6dbfa1d">Class Times:</h3>
+<div class="outline-text-3" id="text-org6dbfa1d">
 <ul class="org-ul">
 <li>M/W 8:30am-10am, 1690 SPH I</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd2012dd" class="outline-3">
-<h3 id="orgd2012dd">Intructor: Hyun Ming Kan</h3>
-<div class="outline-text-3" id="text-orgd2012dd">
+<div id="outline-container-orge13e347" class="outline-3">
+<h3 id="orge13e347">Intructor: Hyun Ming Kan</h3>
+<div class="outline-text-3" id="text-orge13e347">
 <ul class="org-ul">
 <li>email: hmkang@umich.edu</li>
 <li>Office Hours:
@@ -149,9 +139,9 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org0dc4c95" class="outline-3">
-<h3 id="org0dc4c95">GSI: Longhao Pang</h3>
-<div class="outline-text-3" id="text-org0dc4c95">
+<div id="outline-container-orgba5c961" class="outline-3">
+<h3 id="orgba5c961">GSI: Longhao Pang</h3>
+<div class="outline-text-3" id="text-orgba5c961">
 <ul class="org-ul">
 <li>email: lhpang@umich.edu</li>
 <li>Office Hours:
@@ -162,76 +152,21 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgfa4d5ba" class="outline-2">
-<h2 id="orgfa4d5ba">Important Dates</h2>
-<div class="outline-text-2" id="text-orgfa4d5ba">
+<div id="outline-container-orga62c695" class="outline-2">
+<h2 id="orga62c695">Lecture 1 08-26</h2>
+<div class="outline-text-2" id="text-orga62c695">
 </div>
-<div id="outline-container-org45d0834" class="outline-3">
-<h3 id="org45d0834"><span class="done DONE">DONE</span> Topic 0 Review Quiz Due</h3>
-<div class="outline-text-3" id="text-org45d0834">
-</div>
-</div>
-<div id="outline-container-org197c3b9" class="outline-3">
-<h3 id="org197c3b9"><span class="done DONE">DONE</span> Learning Exercise #1</h3>
-<div class="outline-text-3" id="text-org197c3b9">
+<div id="outline-container-org42f855b" class="outline-3">
+<h3 id="org42f855b">Primarily a couse logistics and syllabus overview.</h3>
 </div>
 </div>
-<div id="outline-container-org749ebb6" class="outline-3">
-<h3 id="org749ebb6"><span class="done DONE">DONE</span> Learning Exercise #2, Mastery Assigment #1</h3>
-<div class="outline-text-3" id="text-org749ebb6">
+<div id="outline-container-orgc37906f" class="outline-2">
+<h2 id="orgc37906f">Lecture 2 8-28 | Numerical Precision and Relative Error</h2>
+<div class="outline-text-2" id="text-orgc37906f">
 </div>
-</div>
-<div id="outline-container-org1df2a33" class="outline-3">
-<h3 id="org1df2a33"><span class="todo TODO">TODO</span> Group Project Proposals</h3>
-<div class="outline-text-3" id="text-org1df2a33">
-</div>
-</div>
-<div id="outline-container-orge127cd6" class="outline-3">
-<h3 id="orge127cd6"><span class="todo TODO">TODO</span> Group Project Progress Reporto</h3>
-<div class="outline-text-3" id="text-orge127cd6">
-</div>
-</div>
-<div id="outline-container-orgd5df3d7" class="outline-3">
-<h3 id="orgd5df3d7"><span class="todo TODO">TODO</span> Midterm Exam</h3>
-<div class="outline-text-3" id="text-orgd5df3d7">
-</div>
-</div>
-<div id="outline-container-org8fe9a18" class="outline-3">
-<h3 id="org8fe9a18"><span class="todo TODO">TODO</span> Final Project Presentation Slides</h3>
-<div class="outline-text-3" id="text-org8fe9a18">
-</div>
-</div>
-<div id="outline-container-orgef6381a" class="outline-3">
-<h3 id="orgef6381a"><span class="todo TODO">TODO</span> Final Project Presentations 1</h3>
-<div class="outline-text-3" id="text-orgef6381a">
-</div>
-</div>
-<div id="outline-container-orga80a337" class="outline-3">
-<h3 id="orga80a337"><span class="todo TODO">TODO</span> Final Project Presentations 2</h3>
-<div class="outline-text-3" id="text-orga80a337">
-</div>
-</div>
-<div id="outline-container-orgd49b562" class="outline-3">
-<h3 id="orgd49b562"><span class="todo TODO">TODO</span> Final Report and Software Package</h3>
-<div class="outline-text-3" id="text-orgd49b562">
-</div>
-</div>
-</div>
-<div id="outline-container-orgd42f13f" class="outline-2">
-<h2 id="orgd42f13f">Lecture 1 08-26</h2>
-<div class="outline-text-2" id="text-orgd42f13f">
-</div>
-<div id="outline-container-org1470e47" class="outline-3">
-<h3 id="org1470e47">Primarily a couse logistics and syllabus overview.</h3>
-</div>
-</div>
-<div id="outline-container-org7b1620d" class="outline-2">
-<h2 id="org7b1620d">Lecture 2 8-28 | Numerical Precision and Relative Error</h2>
-<div class="outline-text-2" id="text-org7b1620d">
-</div>
-<div id="outline-container-orgf4ce10b" class="outline-3">
-<h3 id="orgf4ce10b">Computer representation of numbers</h3>
-<div class="outline-text-3" id="text-orgf4ce10b">
+<div id="outline-container-orgbecef96" class="outline-3">
+<h3 id="orgbecef96">Computer representation of numbers</h3>
+<div class="outline-text-3" id="text-orgbecef96">
 <ul class="org-ul">
 <li>Computer operations must work with representation of numbers that accomplished by transitors
 <ul class="org-ul">
@@ -261,9 +196,9 @@ intToBits(<span style="color: #f3f99d; font-weight: bold;">128</span>)
 </div>
 </div>
 </div>
-<div id="outline-container-orgf266e0a" class="outline-3">
-<h3 id="orgf266e0a">Bit and Byte</h3>
-<div class="outline-text-3" id="text-orgf266e0a">
+<div id="outline-container-org0691435" class="outline-3">
+<h3 id="org0691435">Bit and Byte</h3>
+<div class="outline-text-3" id="text-org0691435">
 <ul class="org-ul">
 <li><b>Bit</b>: the basic unit of information in computing and digital communications</li>
 <li><b>Byte</b>: a unit of storing digital information in memory, consisting of <b>eight bits</b>
@@ -333,9 +268,9 @@ print(s+s)
 </ul>
 </div>
 </div>
-<div id="outline-container-org3399cb1" class="outline-3">
-<h3 id="org3399cb1">R Storage</h3>
-<div class="outline-text-3" id="text-org3399cb1">
+<div id="outline-container-org7c5fadc" class="outline-3">
+<h3 id="org7c5fadc">R Storage</h3>
+<div class="outline-text-3" id="text-org7c5fadc">
 <ul class="org-ul">
 <li>Primative data types in R
 <ol class="org-ol">
@@ -352,9 +287,9 @@ print(s+s)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfce2bfc" class="outline-3">
-<h3 id="orgfce2bfc">Floating point representation</h3>
-<div class="outline-text-3" id="text-orgfce2bfc">
+<div id="outline-container-org0eaa8aa" class="outline-3">
+<h3 id="org0eaa8aa">Floating point representation</h3>
+<div class="outline-text-3" id="text-org0eaa8aa">
 <ul class="org-ul">
 <li><b>Q</b>: Can a computer precisely store an irrational number? Why?
 <ul class="org-ul">
@@ -363,13 +298,13 @@ print(s+s)
 </ul>
 </div>
 </div>
-<div id="outline-container-orge467ce5" class="outline-3">
-<h3 id="orge467ce5">Errors</h3>
-<div class="outline-text-3" id="text-orge467ce5">
+<div id="outline-container-orgb328d48" class="outline-3">
+<h3 id="orgb328d48">Errors</h3>
+<div class="outline-text-3" id="text-orgb328d48">
 </div>
-<div id="outline-container-org3c1d2b4" class="outline-4">
-<h4 id="org3c1d2b4">Relative erros in double precision</h4>
-<div class="outline-text-4" id="text-org3c1d2b4">
+<div id="outline-container-orgbabfb8d" class="outline-4">
+<h4 id="orgbabfb8d">Relative erros in double precision</h4>
+<div class="outline-text-4" id="text-orgbabfb8d">
 <ul class="org-ul">
 <li>Upper bound of relative erross: <i>(</i> 2^{-(m+1)} ) where <i>m</i> is the signficand bits</li>
 <li>For relative precision (double) <i>m</i> = 52</li>
@@ -384,13 +319,13 @@ The relative error of double precision is
 </div>
 </div>
 </div>
-<div id="outline-container-org25b7d41" class="outline-2">
-<h2 id="org25b7d41">Lecture 3 9-04 | Numerical Precision and Relatove Error Cont.</h2>
-<div class="outline-text-2" id="text-org25b7d41">
+<div id="outline-container-org70489b6" class="outline-2">
+<h2 id="org70489b6">Lecture 3 9-04 | Numerical Precision and Relatove Error Cont.</h2>
+<div class="outline-text-2" id="text-org70489b6">
 </div>
-<div id="outline-container-org718822a" class="outline-3">
-<h3 id="org718822a">Quick notes:</h3>
-<div class="outline-text-3" id="text-org718822a">
+<div id="outline-container-org5b45cf4" class="outline-3">
+<h3 id="org5b45cf4">Quick notes:</h3>
+<div class="outline-text-3" id="text-org5b45cf4">
 <ul class="org-ul">
 <li>For the mastery assignements there will be no test cases to check like with the learning asssignments</li>
 <li>However, there will be a google collab file that will help you test and debug</li>
@@ -398,22 +333,22 @@ The relative error of double precision is
 </ul>
 </div>
 </div>
-<div id="outline-container-orga6a3ad0" class="outline-3">
-<h3 id="orga6a3ad0">Precision errors with quadratic equation</h3>
-<div class="outline-text-3" id="text-orga6a3ad0">
+<div id="outline-container-org6d4c4b0" class="outline-3">
+<h3 id="org6d4c4b0">Precision errors with quadratic equation</h3>
+<div class="outline-text-3" id="text-org6d4c4b0">
 <ul class="org-ul">
 <li>The challange: (/ | 4b_{2}b_{0} | &lt;&lt; b^{2}_{2} /)</li>
 <li>Not accurate in terms in relative error in some cases</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga387233" class="outline-3">
-<h3 id="orga387233">West Algorithm</h3>
-<div class="outline-text-3" id="text-orga387233">
+<div id="outline-container-org5f849dc" class="outline-3">
+<h3 id="org5f849dc">West Algorithm</h3>
+<div class="outline-text-3" id="text-org5f849dc">
 </div>
-<div id="outline-container-org7020a57" class="outline-4">
-<h4 id="org7020a57">Algorithms (def)</h4>
-<div class="outline-text-4" id="text-org7020a57">
+<div id="outline-container-orga7b3750" class="outline-4">
+<h4 id="orga7b3750">Algorithms (def)</h4>
+<div class="outline-text-4" id="text-orga7b3750">
 <ul class="org-ul">
 <li>loose definition: a sequence of well-defined computational steps</li>
 <li>takes a set of values</li>
@@ -421,9 +356,9 @@ The relative error of double precision is
 </ul>
 </div>
 </div>
-<div id="outline-container-org2ad2145" class="outline-4">
-<h4 id="org2ad2145">Key features of a good algorithm</h4>
-<div class="outline-text-4" id="text-org2ad2145">
+<div id="outline-container-orgc5149aa" class="outline-4">
+<h4 id="orgc5149aa">Key features of a good algorithm</h4>
+<div class="outline-text-4" id="text-orgc5149aa">
 <ul class="org-ul">
 <li>Correctness</li>
 <li>Efficiency</li>
@@ -437,13 +372,13 @@ The relative error of double precision is
 </div>
 </div>
 </div>
-<div id="outline-container-orge255f80" class="outline-2">
-<h2 id="orge255f80">Lecture 4 9-09 | Divide &amp; Conquer</h2>
-<div class="outline-text-2" id="text-orge255f80">
+<div id="outline-container-org056cb15" class="outline-2">
+<h2 id="org056cb15">Lecture 4 9-09 | Divide &amp; Conquer</h2>
+<div class="outline-text-2" id="text-org056cb15">
 </div>
-<div id="outline-container-org675b65f" class="outline-3">
-<h3 id="org675b65f">Time Complexity</h3>
-<div class="outline-text-3" id="text-org675b65f">
+<div id="outline-container-orgca527e1" class="outline-3">
+<h3 id="orgca527e1">Time Complexity</h3>
+<div class="outline-text-3" id="text-orgca527e1">
 <ul class="org-ul">
 <li>Why is it important?
 <ul class="org-ul">
@@ -477,9 +412,9 @@ The relative error of double precision is
 </ul>
 </div>
 </div>
-<div id="outline-container-org1bc18ff" class="outline-3">
-<h3 id="org1bc18ff">Recursion</h3>
-<div class="outline-text-3" id="text-org1bc18ff">
+<div id="outline-container-orgf691c41" class="outline-3">
+<h3 id="orgf691c41">Recursion</h3>
+<div class="outline-text-3" id="text-orgf691c41">
 <ul class="org-ul">
 <li>Key components
 <ul class="org-ul">
@@ -491,9 +426,9 @@ The relative error of double precision is
 </ul>
 </div>
 </div>
-<div id="outline-container-org17e4b13" class="outline-3">
-<h3 id="org17e4b13">Divide and Conquer Algorithm</h3>
-<div class="outline-text-3" id="text-org17e4b13">
+<div id="outline-container-orgdc87812" class="outline-3">
+<h3 id="orgdc87812">Divide and Conquer Algorithm</h3>
+<div class="outline-text-3" id="text-orgdc87812">
 <ul class="org-ul">
 <li>Solve a problem recursively, applying three steps at each level of recursion
 
@@ -504,9 +439,9 @@ The relative error of double precision is
 </ol></li>
 </ul>
 </div>
-<div id="outline-container-org95b9cf3" class="outline-4">
-<h4 id="org95b9cf3">Insertion Sort</h4>
-<div class="outline-text-4" id="text-org95b9cf3">
+<div id="outline-container-org6d03202" class="outline-4">
+<h4 id="org6d03202">Insertion Sort</h4>
+<div class="outline-text-4" id="text-org6d03202">
 <ul class="org-ul">
 <li>For k-th step, assume that elements a[1], &#x2026; , a[k-1] are already sorted in order.</li>
 <li>Locate a[k] between index 1, &#x2026; ,k so that all a[1], &#x2026;, a[k] are in order</li>
@@ -514,9 +449,9 @@ The relative error of double precision is
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfcfc130" class="outline-4">
-<h4 id="orgfcfc130">Merge Sort</h4>
-<div class="outline-text-4" id="text-orgfcfc130">
+<div id="outline-container-org4b26a0d" class="outline-4">
+<h4 id="org4b26a0d">Merge Sort</h4>
+<div class="outline-text-4" id="text-org4b26a0d">
 <ul class="org-ul">
 <li>Concept behind merge sort is relatively simple</li>
 <li>Keep splitting the array into halves until each subarray is size 1</li>
@@ -571,13 +506,13 @@ mergeSort = <span style="color: #ffb86c;">function</span>(x) {
 </div>
 </div>
 </div>
-<div id="outline-container-org66dfc21" class="outline-2">
-<h2 id="org66dfc21">Lecture 5 | Matrix Computation</h2>
-<div class="outline-text-2" id="text-org66dfc21">
+<div id="outline-container-org4f66b29" class="outline-2">
+<h2 id="org4f66b29">Lecture 5 | Matrix Computation</h2>
+<div class="outline-text-2" id="text-org4f66b29">
 </div>
-<div id="outline-container-orgb2d42b8" class="outline-3">
-<h3 id="orgb2d42b8">Algorithms for matrix computation</h3>
-<div class="outline-text-3" id="text-orgb2d42b8">
+<div id="outline-container-org0217c0e" class="outline-3">
+<h3 id="org0217c0e">Algorithms for matrix computation</h3>
+<div class="outline-text-3" id="text-org0217c0e">
 <ul class="org-ul">
 <li>Why do matrices matter?
 <ul class="org-ul">
@@ -596,13 +531,13 @@ mergeSort = <span style="color: #ffb86c;">function</span>(x) {
 </div>
 </div>
 </div>
-<div id="outline-container-orgf12643c" class="outline-2">
-<h2 id="orgf12643c">Lecture 6 | Matrix Computation cont.</h2>
-<div class="outline-text-2" id="text-orgf12643c">
+<div id="outline-container-orgbcb92d1" class="outline-2">
+<h2 id="orgbcb92d1">Lecture 6 | Matrix Computation cont.</h2>
+<div class="outline-text-2" id="text-orgbcb92d1">
 </div>
-<div id="outline-container-orgf6100b3" class="outline-3">
-<h3 id="orgf6100b3">BLAS/LAPACK</h3>
-<div class="outline-text-3" id="text-orgf6100b3">
+<div id="outline-container-orgccd94e6" class="outline-3">
+<h3 id="orgccd94e6">BLAS/LAPACK</h3>
+<div class="outline-text-3" id="text-orgccd94e6">
 <ul class="org-ul">
 <li>BLAS: implements low-level routines for linear algebra</li>
 <li>LAPACK: implements key algorithms for linear algebra such as matrix decomposition and linear systems solver</li>
@@ -619,9 +554,9 @@ mergeSort = <span style="color: #ffb86c;">function</span>(x) {
 </ul>
 </div>
 </div>
-<div id="outline-container-org905da41" class="outline-3">
-<h3 id="org905da41">Quadratic multiplication</h3>
-<div class="outline-text-3" id="text-org905da41">
+<div id="outline-container-orgea784b1" class="outline-3">
+<h3 id="orgea784b1">Quadratic multiplication</h3>
+<div class="outline-text-3" id="text-orgea784b1">
 <ul class="org-ul">
 <li>Consider computing \(x'Ax\) where \(A=LL'\) (Cholesky decomposition)</li>
 <li>\(u=L'x\) can be computed more efficiently than \(Ax\)</li>
@@ -629,17 +564,132 @@ mergeSort = <span style="color: #ffb86c;">function</span>(x) {
 </ul>
 </div>
 </div>
-<div id="outline-container-org5202d6e" class="outline-3">
-<h3 id="org5202d6e">Matrix decompisition and solving linear systems</h3>
+<div id="outline-container-orgf99efde" class="outline-3">
+<h3 id="orgf99efde">Matrix decompisition and solving linear systems</h3>
 </div>
 </div>
-<div id="outline-container-orgce65f82" class="outline-2">
-<h2 id="orgce65f82">Assignments:</h2>
-<div class="outline-text-2" id="text-orgce65f82">
+<div id="outline-container-orgb4df708" class="outline-2">
+<h2 id="orgb4df708">Single Dimension Optimization Methods</h2>
+<div class="outline-text-2" id="text-orgb4df708">
 </div>
-<div id="outline-container-orgbc2d9cd" class="outline-3">
-<h3 id="orgbc2d9cd">Learning Ex. 1:</h3>
-<div class="outline-text-3" id="text-orgbc2d9cd">
+<div id="outline-container-org0fdfc41" class="outline-3">
+<h3 id="org0fdfc41">Root Finding</h3>
+<div class="outline-text-3" id="text-org0fdfc41">
+<ul class="org-ul">
+<li>Root finding and optimization are closely related problems</li>
+<li>Each type of problem can be converted to the other
+<ul class="org-ul">
+<li>Root finding -&gt; Optimization: minimize \(F(x):{f(x)}^2\)</li>
+<li>Optimization -&gt; Root finding: solve \(f(x)=F'(x)=0\)</li>
+</ul></li>
+<li>In both cases, you will find all the solution of the original problem, and possible and some spurious solutions that do not solve the original problem.</li>
+</ul>
+</div>
+<div id="outline-container-org8aafeed" class="outline-4">
+<h4 id="org8aafeed">Bisection Method</h4>
+<div class="outline-text-4" id="text-org8aafeed">
+<ul class="org-ul">
+<li>Assume a continuous function \(f(x)\)</li>
+<li>The intermediate value theorem then tells use that if \(f(x)\) is positive at \(x=a\) and negative at \(x=b\) there has to be a root in between \(a\) and \(b\)</li>
+<li>Basic algorithm structure:
+<ul class="org-ul">
+<li>Start with the initial points \(a_0, b_0\) so that \(f(a_0) > 0, f(b_0) < 0\)</li>
+<li>At the midpoint: \(x_0 = (a_0 + b_0)/2\), calculate f(x_0)$</li>
+<li>If \(f(x_0)=0\), then it is done; otherwise, one of two things happens:
+<ul class="org-ul">
+<li>\(f(a_0)f(x_0) < 0\), in which case we set \(a_1=a_0, b_1=x_0\); or</li>
+<li>\(f(a_0)f(x_0) > 0\), in which case we set $a_1=x_0, b_1=b_0</li>
+</ul></li>
+<li>Set \(x_1 = (a_1 + b_1) / 2\) and calculate \(f(x_1)\)</li>
+<li>Repeat steps 3-4 until \(b_n - a_n\) is small enough</li>
+</ul></li>
+<li>It is impossible to estimate \(e_n\) exactly for this method, and ther error may actually grow in steps, but if we interpret \(e_n\) as the maximum possible error \(e_n=(b_n - a_n)/2\), then \(e_{n+1} = (1/2)e_n\)</li>
+<li>The method is linearly convergent, with convergence factor \(1/2\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbddeef3" class="outline-4">
+<h4 id="orgbddeef3">Fixed Point Iteration</h4>
+<div class="outline-text-4" id="text-orgbddeef3">
+<ul class="org-ul">
+<li><b>NOTE</b>: this is not a method that is generally used in practice.</li>
+<li>Consider an equivalent equation \(f(x)=0\) represented as $g(x)=x. We refer to its solution as a <b>fixed point</b> of \(g\).</li>
+<li>For \(n=0,1,\dots,N\), iteratively evantuate \(x_{n+1}=g(x_n\)</li>
+<li>Do you think \(x_n\) will converge to the root \(of f(x) = 0\)?</li>
+<li>Example:
+<ul class="org-ul">
+<li>Target function \(f(x)=\cos x -x = 0\)</li>
+<li>Define \(g(x) = f(x) + x = \cos x\)</li>
+<li>Then \(g(x) = x\) when \(f(x)=0\)</li>
+<li>The fixed point algorithm evaluates \(x_{n+1} = g(x_n) = \cos x\) for \(n = 0, 1,\dots,N\).</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org75e0b3d" class="outline-4">
+<h4 id="org75e0b3d">Newton-Raphson Method</h4>
+<div class="outline-text-4" id="text-org75e0b3d">
+<ul class="org-ul">
+<li><p>
+A special way to construct the fixed point iteration
+</p>
+
+\begin{equation}
+
+g(x) = x - \frac{f(x)}{f'(x)}
+
+\end{equation}</li>
+
+<li><p>
+<b>Algorithm:</b> given an initial guess \(x_0\); for \(n=0,1,\dots,N\), calculate the tangent to \(f\) at \(x_n\) and intersect it with the x-axis. This is the next point:
+</p>
+
+\begin{equation}
+
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+
+\end{equation}</li>
+
+<li>This method converges quadratically as long as \(f\) has two continuous derivatives.</li>
+
+<li>Potential problems iwth Newton-Raphson Algo:
+<ul class="org-ul">
+<li>Huge jumps:</li>
+<li>Cycles</li>
+<li>Divergence</li>
+<li>Requires Derivative</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3c24c49" class="outline-4">
+<h4 id="org3c24c49">The Secant Method</h4>
+<div class="outline-text-4" id="text-org3c24c49">
+<ul class="org-ul">
+<li>Discrete version of Newton-Raphson method that does not require derivatives</li>
+<li><p>
+Given two initial points \(x_0, x_1\): for \(n=0,1,\dots,n\) draw a straight line through \((x_n, f(x_n))\) and \((x_1, f(x_1))\). The next point \(x_{n+2}\) is the place where this lone intersects the x-axis. We can calculate that:
+</p>
+
+\begin{equation*}
+
+x_{n+2} = \frac{x_n f(x_{n+1}) - x_{n+1} f(x_n)}{f(x_{n+1}) - f(x_n)}
+
+\end{equation*}</li>
+
+<li>Suppose \(f'(x^*)\neq 0\). If \(x_0\) is sifficiently close to \(x^*\), then secant method has \(e_{n+2} \approx Ce_{n+1}e_n\), thus it converges of order \(\frac{\sqrt{5} + 1}{2} \approx 1.618\).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge234ff3" class="outline-2">
+<h2 id="orge234ff3">Assignments:</h2>
+<div class="outline-text-2" id="text-orge234ff3">
+</div>
+<div id="outline-container-org22dfb46" class="outline-3">
+<h3 id="org22dfb46">Learning Ex. 1:</h3>
+<div class="outline-text-3" id="text-org22dfb46">
 <ul class="org-ul">
 <li>`intToBits()` converts to 64-bit by default AND in reversed order. In order to complete this task we need to reverse the order of the vector and remove every even element.</li>
 <li>This can be completed to satisfaction with brute force by following this logic:
@@ -652,9 +702,9 @@ mergeSort = <span style="color: #ffb86c;">function</span>(x) {
 </ul>
 </div>
 </div>
-<div id="outline-container-org6566acb" class="outline-3">
-<h3 id="org6566acb">Code</h3>
-<div class="outline-text-3" id="text-org6566acb">
+<div id="outline-container-org5c74076" class="outline-3">
+<h3 id="org5c74076">Code</h3>
+<div class="outline-text-3" id="text-org5c74076">
 <div class="org-src-container">
 <pre class="src src-R"><span style="color: #57c7ff;">int2BinaryStr</span> <span style="color: #5af78e;">&lt;-</span> <span style="color: #ffb86c;">function</span>(n) {
   <span style="color: #ffb86c;">if</span> (!is.numeric(n) || floor(n) != n || n &lt; -<span style="color: #f3f99d; font-weight: bold;">2</span>^<span style="color: #f3f99d; font-weight: bold;">31</span> || n &gt; <span style="color: #f3f99d; font-weight: bold;">2</span>^<span style="color: #f3f99d; font-weight: bold;">31</span> - <span style="color: #f3f99d; font-weight: bold;">1</span>) {
@@ -668,9 +718,9 @@ mergeSort = <span style="color: #ffb86c;">function</span>(x) {
 </pre>
 </div>
 </div>
-<div id="outline-container-orgde865a4" class="outline-4">
-<h4 id="orgde865a4">Code Breakdown</h4>
-<div class="outline-text-4" id="text-orgde865a4">
+<div id="outline-container-org5e0db51" class="outline-4">
+<h4 id="org5e0db51">Code Breakdown</h4>
+<div class="outline-text-4" id="text-org5e0db51">
 <ul class="org-ul">
 <li>r{!is.numeric(n)}: checking if number is not a numeric. Base R treats numeric values as 64-bit</li>
 <li>r{floor(n) != n}: checking if n is not an integer</li>
@@ -679,12 +729,12 @@ mergeSort = <span style="color: #ffb86c;">function</span>(x) {
 </div>
 </div>
 </div>
-<div id="outline-container-org09de879" class="outline-3">
-<h3 id="org09de879">Learning Ex. 2:</h3>
+<div id="outline-container-org9ed30b9" class="outline-3">
+<h3 id="org9ed30b9">Learning Ex. 2:</h3>
 </div>
 
-<div id="outline-container-orgd81c1a9" class="outline-3">
-<h3 id="orgd81c1a9">Code</h3>
+<div id="outline-container-org0539827" class="outline-3">
+<h3 id="org0539827">Code</h3>
 </div>
 </div>
 </div>

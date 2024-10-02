@@ -24,28 +24,6 @@
 - Office Hours:
   - Tuesday 3-4:30 M4117 SPH II
 
-* Important Dates
-** DONE Topic 0 Review Quiz Due
-SCHEDULED: <2024-08-28 Wed>
-** DONE Learning Exercise #1
-SCHEDULED: <2024-09-03 Tue>
-** DONE Learning Exercise #2, Mastery Assigment #1
-SCHEDULED: <2024-09-10 Tue>
-** TODO Group Project Proposals
-SCHEDULED: <2024-10-11 Fri>
-** TODO Group Project Progress Reporto
-SCHEDULED: <2024-11-08 Fri>
-** TODO Midterm Exam
-SCHEDULED: <2024-11-25 Mon>
-** TODO Final Project Presentation Slides
-SCHEDULED: <2024-12-03 Tues>
-** TODO Final Project Presentations 1
-SCHEDULED: <2024-12-04 Wed>
-** TODO Final Project Presentations 2
-SCHEDULED: <2024-12-09 Mon>
-** TODO Final Report and Software Package
-SCHEDULED: <2024-12-13>
-
 * Lecture 1 08-26
 
 ** Primarily a couse logistics and syllabus overview.
@@ -315,6 +293,82 @@ mergeSort = function(x) {
 - $x'Ax=u'u$
 
 ** Matrix decompisition and solving linear systems
+
+* Single Dimension Optimization Methods
+
+** Root Finding
+
+- Root finding and optimization are closely related problems
+- Each type of problem can be converted to the other
+  - Root finding -> Optimization: minimize $F(x):{f(x)}^2$
+  - Optimization -> Root finding: solve $f(x)=F'(x)=0$
+- In both cases, you will find all the solution of the original problem, and possible and some spurious solutions that do not solve the original problem.
+
+*** Bisection Method
+
+- Assume a continuous function $f(x)$
+- The intermediate value theorem then tells use that if $f(x)$ is positive at $x=a$ and negative at $x=b$ there has to be a root in between $a$ and $b$
+- Basic algorithm structure:
+  - Start with the initial points $a_0, b_0$ so that $f(a_0) > 0, f(b_0) < 0$
+  - At the midpoint: $x_0 = (a_0 + b_0)/2$, calculate f(x_0)$
+  - If $f(x_0)=0$, then it is done; otherwise, one of two things happens:
+    - $f(a_0)f(x_0) < 0$, in which case we set $a_1=a_0, b_1=x_0$; or
+    - $f(a_0)f(x_0) > 0$, in which case we set $a_1=x_0, b_1=b_0
+  - Set $x_1 = (a_1 + b_1) / 2$ and calculate $f(x_1)$
+  - Repeat steps 3-4 until $b_n - a_n$ is small enough
+- It is impossible to estimate $e_n$ exactly for this method, and ther error may actually grow in steps, but if we interpret $e_n$ as the maximum possible error $e_n=(b_n - a_n)/2$, then $e_{n+1} = (1/2)e_n$
+- The method is linearly convergent, with convergence factor $1/2$
+
+*** Fixed Point Iteration
+
+- *NOTE*: this is not a method that is generally used in practice.
+- Consider an equivalent equation $f(x)=0$ represented as $g(x)=x. We refer to its solution as a *fixed point* of $g$.
+- For $n=0,1,\dots,N$, iteratively evantuate $x_{n+1}=g(x_n$
+- Do you think $x_n$ will converge to the root $of f(x) = 0$?
+- Example:
+  - Target function $f(x)=\cos x -x = 0$
+  - Define $g(x) = f(x) + x = \cos x$
+  - Then $g(x) = x$ when $f(x)=0$
+  - The fixed point algorithm evaluates $x_{n+1} = g(x_n) = \cos x$ for $n = 0, 1,\dots,N$.
+
+*** Newton-Raphson Method
+
+- A special way to construct the fixed point iteration
+
+  \begin{equation}
+
+  g(x) = x - \frac{f(x)}{f'(x)}
+
+  \end{equation}
+
+- *Algorithm:* given an initial guess $x_0$; for $n=0,1,\dots,N$, calculate the tangent to $f$ at $x_n$ and intersect it with the x-axis. This is the next point:
+
+  \begin{equation}
+
+  x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+
+  \end{equation}
+
+- This method converges quadratically as long as $f$ has two continuous derivatives.
+
+- Potential problems iwth Newton-Raphson Algo:
+  - Huge jumps:
+  - Cycles
+  - Divergence
+  - Requires Derivative
+
+*** The Secant Method
+
+- Discrete version of Newton-Raphson method that does not require derivatives
+- Given two initial points $x_0, x_1$: for $n=0,1,\dots,n$ draw a straight line through $(x_n, f(x_n))$ and $(x_1, f(x_1))$. The next point $x_{n+2}$ is the place where this lone intersects the x-axis. We can calculate that:
+
+  \begin{equation*}
+
+  x_{n+2} = \frac{x_n f(x_{n+1}) - x_{n+1} f(x_n)}{f(x_{n+1}) - f(x_n)}
+
+  \end{equation*}
+
+- Suppose $f'(x^*)\neq 0$. If $x_0$ is sifficiently close to $x^*$, then secant method has $e_{n+2} \approx Ce_{n+1}e_n$, thus it converges of order $\frac{\sqrt{5} + 1}{2} \approx 1.618$.
 
 * Assignments:
 
