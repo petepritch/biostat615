@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-01 Tue 20:27 -->
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BIOSTAT 615 Notes</title>
+<meta name="author" content="Pete Pritchard" />
+<meta name="description" content="Organization File For BIOSTATS 615 @ The University of Michigan, Ann Arbor" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="custom.css"/>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">BIOSTAT 615 Notes</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org249c8be">Course Logistics</a>
+<ul>
+<li><a href="#org0243816">Class Times:</a></li>
+<li><a href="#orgd2012dd">Intructor: Hyun Ming Kan</a></li>
+<li><a href="#org0dc4c95">GSI: Longhao Pang</a></li>
+</ul>
+</li>
+<li><a href="#orgfa4d5ba">Important Dates</a>
+<ul>
+<li><a href="#org45d0834"><span class="done DONE">DONE</span> Topic 0 Review Quiz Due</a></li>
+<li><a href="#org197c3b9"><span class="done DONE">DONE</span> Learning Exercise #1</a></li>
+<li><a href="#org749ebb6"><span class="done DONE">DONE</span> Learning Exercise #2, Mastery Assigment #1</a></li>
+<li><a href="#org1df2a33"><span class="todo TODO">TODO</span> Group Project Proposals</a></li>
+<li><a href="#orge127cd6"><span class="todo TODO">TODO</span> Group Project Progress Reporto</a></li>
+<li><a href="#orgd5df3d7"><span class="todo TODO">TODO</span> Midterm Exam</a></li>
+<li><a href="#org8fe9a18"><span class="todo TODO">TODO</span> Final Project Presentation Slides</a></li>
+<li><a href="#orgef6381a"><span class="todo TODO">TODO</span> Final Project Presentations 1</a></li>
+<li><a href="#orga80a337"><span class="todo TODO">TODO</span> Final Project Presentations 2</a></li>
+<li><a href="#orgd49b562"><span class="todo TODO">TODO</span> Final Report and Software Package</a></li>
+</ul>
+</li>
+<li><a href="#orgd42f13f">Lecture 1 08-26</a>
+<ul>
+<li><a href="#org1470e47">Primarily a couse logistics and syllabus overview.</a></li>
+</ul>
+</li>
+<li><a href="#org7b1620d">Lecture 2 8-28 | Numerical Precision and Relative Error</a>
+<ul>
+<li><a href="#orgf4ce10b">Computer representation of numbers</a></li>
+<li><a href="#orgf266e0a">Bit and Byte</a></li>
+<li><a href="#org3399cb1">R Storage</a></li>
+<li><a href="#orgfce2bfc">Floating point representation</a></li>
+<li><a href="#orge467ce5">Errors</a></li>
+</ul>
+</li>
+<li><a href="#org25b7d41">Lecture 3 9-04 | Numerical Precision and Relatove Error Cont.</a>
+<ul>
+<li><a href="#org718822a">Quick notes:</a></li>
+<li><a href="#orga6a3ad0">Precision errors with quadratic equation</a></li>
+<li><a href="#orga387233">West Algorithm</a></li>
+</ul>
+</li>
+<li><a href="#orge255f80">Lecture 4 9-09 | Divide &amp; Conquer</a>
+<ul>
+<li><a href="#org675b65f">Time Complexity</a></li>
+<li><a href="#org1bc18ff">Recursion</a></li>
+<li><a href="#org17e4b13">Divide and Conquer Algorithm</a></li>
+</ul>
+</li>
+<li><a href="#org66dfc21">Lecture 5 | Matrix Computation</a>
+<ul>
+<li><a href="#orgb2d42b8">Algorithms for matrix computation</a></li>
+</ul>
+</li>
+<li><a href="#orgf12643c">Lecture 6 | Matrix Computation cont.</a>
+<ul>
+<li><a href="#orgf6100b3">BLAS/LAPACK</a></li>
+<li><a href="#org905da41">Quadratic multiplication</a></li>
+<li><a href="#org5202d6e">Matrix decompisition and solving linear systems</a></li>
+</ul>
+</li>
+<li><a href="#orgce65f82">Assignments:</a>
+<ul>
+<li><a href="#orgbc2d9cd">Learning Ex. 1:</a></li>
+<li><a href="#org6566acb">Code</a></li>
+<li><a href="#org09de879">Learning Ex. 2:</a></li>
+<li><a href="#orgd81c1a9">Code</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org249c8be" class="outline-2">
+<h2 id="org249c8be">Course Logistics</h2>
+<div class="outline-text-2" id="text-org249c8be">
+</div>
+<div id="outline-container-org0243816" class="outline-3">
+<h3 id="org0243816">Class Times:</h3>
+<div class="outline-text-3" id="text-org0243816">
+<ul class="org-ul">
+<li>M/W 8:30am-10am, 1690 SPH I</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd2012dd" class="outline-3">
+<h3 id="orgd2012dd">Intructor: Hyun Ming Kan</h3>
+<div class="outline-text-3" id="text-orgd2012dd">
+<ul class="org-ul">
+<li>email: hmkang@umich.edu</li>
+<li>Office Hours:
+<ul class="org-ul">
+<li>Monday 9:50am - 10:30am, 4623 SPH I Tower</li>
+<li>Wednesday 9:50am - 10:30am, 4623 SPH I Tower</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0dc4c95" class="outline-3">
+<h3 id="org0dc4c95">GSI: Longhao Pang</h3>
+<div class="outline-text-3" id="text-org0dc4c95">
+<ul class="org-ul">
+<li>email: lhpang@umich.edu</li>
+<li>Office Hours:
+<ul class="org-ul">
+<li>Tuesday 3-4:30 M4117 SPH II</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfa4d5ba" class="outline-2">
+<h2 id="orgfa4d5ba">Important Dates</h2>
+<div class="outline-text-2" id="text-orgfa4d5ba">
+</div>
+<div id="outline-container-org45d0834" class="outline-3">
+<h3 id="org45d0834"><span class="done DONE">DONE</span> Topic 0 Review Quiz Due</h3>
+<div class="outline-text-3" id="text-org45d0834">
+</div>
+</div>
+<div id="outline-container-org197c3b9" class="outline-3">
+<h3 id="org197c3b9"><span class="done DONE">DONE</span> Learning Exercise #1</h3>
+<div class="outline-text-3" id="text-org197c3b9">
+</div>
+</div>
+<div id="outline-container-org749ebb6" class="outline-3">
+<h3 id="org749ebb6"><span class="done DONE">DONE</span> Learning Exercise #2, Mastery Assigment #1</h3>
+<div class="outline-text-3" id="text-org749ebb6">
+</div>
+</div>
+<div id="outline-container-org1df2a33" class="outline-3">
+<h3 id="org1df2a33"><span class="todo TODO">TODO</span> Group Project Proposals</h3>
+<div class="outline-text-3" id="text-org1df2a33">
+</div>
+</div>
+<div id="outline-container-orge127cd6" class="outline-3">
+<h3 id="orge127cd6"><span class="todo TODO">TODO</span> Group Project Progress Reporto</h3>
+<div class="outline-text-3" id="text-orge127cd6">
+</div>
+</div>
+<div id="outline-container-orgd5df3d7" class="outline-3">
+<h3 id="orgd5df3d7"><span class="todo TODO">TODO</span> Midterm Exam</h3>
+<div class="outline-text-3" id="text-orgd5df3d7">
+</div>
+</div>
+<div id="outline-container-org8fe9a18" class="outline-3">
+<h3 id="org8fe9a18"><span class="todo TODO">TODO</span> Final Project Presentation Slides</h3>
+<div class="outline-text-3" id="text-org8fe9a18">
+</div>
+</div>
+<div id="outline-container-orgef6381a" class="outline-3">
+<h3 id="orgef6381a"><span class="todo TODO">TODO</span> Final Project Presentations 1</h3>
+<div class="outline-text-3" id="text-orgef6381a">
+</div>
+</div>
+<div id="outline-container-orga80a337" class="outline-3">
+<h3 id="orga80a337"><span class="todo TODO">TODO</span> Final Project Presentations 2</h3>
+<div class="outline-text-3" id="text-orga80a337">
+</div>
+</div>
+<div id="outline-container-orgd49b562" class="outline-3">
+<h3 id="orgd49b562"><span class="todo TODO">TODO</span> Final Report and Software Package</h3>
+<div class="outline-text-3" id="text-orgd49b562">
+</div>
+</div>
+</div>
+<div id="outline-container-orgd42f13f" class="outline-2">
+<h2 id="orgd42f13f">Lecture 1 08-26</h2>
+<div class="outline-text-2" id="text-orgd42f13f">
+</div>
+<div id="outline-container-org1470e47" class="outline-3">
+<h3 id="org1470e47">Primarily a couse logistics and syllabus overview.</h3>
+</div>
+</div>
+<div id="outline-container-org7b1620d" class="outline-2">
+<h2 id="org7b1620d">Lecture 2 8-28 | Numerical Precision and Relative Error</h2>
+<div class="outline-text-2" id="text-org7b1620d">
+</div>
+<div id="outline-container-orgf4ce10b" class="outline-3">
+<h3 id="orgf4ce10b">Computer representation of numbers</h3>
+<div class="outline-text-3" id="text-orgf4ce10b">
+<ul class="org-ul">
+<li>Computer operations must work with representation of numbers that accomplished by transitors
+<ul class="org-ul">
+<li>Transitor: a miniature semiconductor that regulates or controls current or voltage flow in addition to amplifying and generating these eletrical signals and acting as as switch/gate for them</li>
+<li>CPU and RAM</li>
+<li>Amount of information that can be stored is limited by the amount of size of transitor (storage)</li>
+</ul></li>
+<li>Two possible states: <b>off</b> and <b>on</b></li>
+<li>Number of transitors is finite&#x2026; can be up to a billion</li>
+<li>To manage overall memory effectively,
+<ul class="org-ul">
+<li>Restrict the amount of memory that can be allocated to different kinds of numbers</li>
+</ul></li>
+<li>In the decimal system, numerical values are represented in units or powers of 10</li>
+<li>For a nonnegative integer <i>k</i>
+\[
+  k = \sum{j=0}{m}a_{j}(10)^{j}, k = (a_{m}a_{m-1} \dots a_{0})_{10}
+  \]
+where</li>
+<li>For example,</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-R">intToBits(<span style="color: #f3f99d; font-weight: bold;">127</span>)
+intToBits(<span style="color: #f3f99d; font-weight: bold;">128</span>)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf266e0a" class="outline-3">
+<h3 id="orgf266e0a">Bit and Byte</h3>
+<div class="outline-text-3" id="text-orgf266e0a">
+<ul class="org-ul">
+<li><b>Bit</b>: the basic unit of information in computing and digital communications</li>
+<li><b>Byte</b>: a unit of storing digital information in memory, consisting of <b>eight bits</b>
+op- The connection between <b>machine memory</b> and <b>computer arithmetic</b>:
+<ul class="org-ul">
+<li>Bits &lt;-&gt; Transitors, Bytes &lt;-&gt; Blocks of 8 Transitors</li>
+</ul></li>
+<li>Integer in memory:
+<ul class="org-ul">
+<li>Binary representation created by:
+<ul class="org-ul">
+<li>allocating it a block of memory</li>
+<li>idenifying the individual transitors in the block with a power 2 from its binary representation</li>
+<li>turning on those transitors that correspond to powers of 2 that have unit (1) coefficients</li>
+</ul></li>
+<li>Let&rsquo;s look at <b>2024</b> again
+<ul class="org-ul">
+<li>We need <b>11</b> bits to hold integer <b>2024</b></li>
+<li><b>11</b> bits are needed, so <b>1</b> byte is not enough, at least <b>2</b> bytes</li>
+</ul></li>
+</ul></li>
+<li>More on bytes:
+<ul class="org-ul">
+<li>A document, image, movie,&#x2026; how many bytes?</li>
+<li><b>1</b> byte can hold a letter / character
+<ul class="org-ul">
+<li>KB = 1 thousand bytes</li>
+<li>MB = 1 million bytes</li>
+<li>GB = 1 billion bytes</li>
+<li>TB = 1 trillion bytes</li>
+<li>PB = 1 quadrillion bytes</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-R">s = <span style="color: #f3f99d; font-weight: bold;">2000000000</span>
+
+print(s)
+
+print(s+s)
+
+<span style="color: #606580;"># </span><span style="color: #606580;">What do you expect to be printed?</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-R">s = 2000000000L
+
+print(s)
+
+print(s+s)
+
+<span style="color: #606580;"># </span><span style="color: #606580;">What do you expect to be printed?</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-R">noquote(format(.Machine))
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>.Machine contains a list of machine precision and limit values</li>
+<li>format(.) displays a list in a tabular format string</li>
+<li>noquote(.)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3399cb1" class="outline-3">
+<h3 id="org3399cb1">R Storage</h3>
+<div class="outline-text-3" id="text-org3399cb1">
+<ul class="org-ul">
+<li>Primative data types in R
+<ol class="org-ol">
+<li>character: 8 bytes</li>
+<li>double: numeric: 8 bytes</li>
+<li>integer: 4 bytes</li>
+<li>logical: 4 bytes</li>
+</ol></li>
+
+<li>The most basic data structure in <b>R</b> is an array comprised of one of the primitive data types that is referred to as an <i>atomic vector</i></li>
+<li>Use the <b>storage.mode</b> to access the storage mode of a given object</li>
+<li>Use the <b>object.size</b> to obtain the memory allocation of an R object</li>
+<li>Machine specific detauls cocnerning storage, etc. are held in the <b>R</b> list variable <b>.machine</b></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfce2bfc" class="outline-3">
+<h3 id="orgfce2bfc">Floating point representation</h3>
+<div class="outline-text-3" id="text-orgfce2bfc">
+<ul class="org-ul">
+<li><b>Q</b>: Can a computer precisely store an irrational number? Why?
+<ul class="org-ul">
+<li><b>A</b>: There is a limit to the precision that can be acheived.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge467ce5" class="outline-3">
+<h3 id="orge467ce5">Errors</h3>
+<div class="outline-text-3" id="text-orge467ce5">
+</div>
+<div id="outline-container-org3c1d2b4" class="outline-4">
+<h4 id="org3c1d2b4">Relative erros in double precision</h4>
+<div class="outline-text-4" id="text-org3c1d2b4">
+<ul class="org-ul">
+<li>Upper bound of relative erross: <i>(</i> 2^{-(m+1)} ) where <i>m</i> is the signficand bits</li>
+<li>For relative precision (double) <i>m</i> = 52</li>
+<li><p>
+The relative error of double precision is
+</p>
+\begin{equation}
+
+\end{equation}</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org25b7d41" class="outline-2">
+<h2 id="org25b7d41">Lecture 3 9-04 | Numerical Precision and Relatove Error Cont.</h2>
+<div class="outline-text-2" id="text-org25b7d41">
+</div>
+<div id="outline-container-org718822a" class="outline-3">
+<h3 id="org718822a">Quick notes:</h3>
+<div class="outline-text-3" id="text-org718822a">
+<ul class="org-ul">
+<li>For the mastery assignements there will be no test cases to check like with the learning asssignments</li>
+<li>However, there will be a google collab file that will help you test and debug</li>
+<li>Unlimited submissions just like learning assignment</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga6a3ad0" class="outline-3">
+<h3 id="orga6a3ad0">Precision errors with quadratic equation</h3>
+<div class="outline-text-3" id="text-orga6a3ad0">
+<ul class="org-ul">
+<li>The challange: (/ | 4b_{2}b_{0} | &lt;&lt; b^{2}_{2} /)</li>
+<li>Not accurate in terms in relative error in some cases</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga387233" class="outline-3">
+<h3 id="orga387233">West Algorithm</h3>
+<div class="outline-text-3" id="text-orga387233">
+</div>
+<div id="outline-container-org7020a57" class="outline-4">
+<h4 id="org7020a57">Algorithms (def)</h4>
+<div class="outline-text-4" id="text-org7020a57">
+<ul class="org-ul">
+<li>loose definition: a sequence of well-defined computational steps</li>
+<li>takes a set of values</li>
+<li>produces a set of values</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2ad2145" class="outline-4">
+<h4 id="org2ad2145">Key features of a good algorithm</h4>
+<div class="outline-text-4" id="text-org2ad2145">
+<ul class="org-ul">
+<li>Correctness</li>
+<li>Efficiency</li>
+<li>Simplicity</li>
+</ul>
+
+<p>
+<b>*</b>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge255f80" class="outline-2">
+<h2 id="orge255f80">Lecture 4 9-09 | Divide &amp; Conquer</h2>
+<div class="outline-text-2" id="text-orge255f80">
+</div>
+<div id="outline-container-org675b65f" class="outline-3">
+<h3 id="org675b65f">Time Complexity</h3>
+<div class="outline-text-3" id="text-org675b65f">
+<ul class="org-ul">
+<li>Why is it important?
+<ul class="org-ul">
+<li>Suppose that I have an algoroithm that takes 1 second for n=1000 sample size</li>
+<li>If the algorithm has linear time complexity&#x2026;.
+<ul class="org-ul">
+<li>1 million, 17 minutes</li>
+<li>1 billion, 12 days&#x2026;.</li>
+</ul></li>
+<li>If the algorithm has quadratic time complexity&#x2026;
+<ul class="org-ul">
+<li>50000 samples, 42 minutes</li>
+<li>1 million samples, 12 days</li>
+<li>1 billion, 31000 years</li>
+</ul></li>
+<li>In log time complexity&#x2026;
+<ul class="org-ul">
+<li>For 1 billion samples, 20 seconds</li>
+</ul></li>
+</ul></li>
+
+<li>Big O notation (upper bounded)
+<ul class="org-ul">
+<li>This is what we care abou the most&#x2026; worst case performance</li>
+</ul></li>
+<li>Big Omega notation (lower bounded)</li>
+<li>Big Theta notation (tight bound)
+<ul class="org-ul">
+<li>For most of this class, we will use Big Theta notation</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1bc18ff" class="outline-3">
+<h3 id="org1bc18ff">Recursion</h3>
+<div class="outline-text-3" id="text-org1bc18ff">
+<ul class="org-ul">
+<li>Key components
+<ul class="org-ul">
+<li>A function that is part of its own definition</li>
+<li>Terminating condition</li>
+</ul></li>
+
+<li>Tower of Hanoi</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org17e4b13" class="outline-3">
+<h3 id="org17e4b13">Divide and Conquer Algorithm</h3>
+<div class="outline-text-3" id="text-org17e4b13">
+<ul class="org-ul">
+<li>Solve a problem recursively, applying three steps at each level of recursion
+
+<ol class="org-ol">
+<li><b>Divide</b>: the problem into a number of subproblems that are smaller instances of the same problem</li>
+<li><b>Conquer</b>: the subproblems by solving them recursively. If the subproblem sizes are small enough, however, just solve the problems in a straightforward manner</li>
+<li><b>Combine</b>: the solutions to subproblems into the solution for the original problem</li>
+</ol></li>
+</ul>
+</div>
+<div id="outline-container-org95b9cf3" class="outline-4">
+<h4 id="org95b9cf3">Insertion Sort</h4>
+<div class="outline-text-4" id="text-org95b9cf3">
+<ul class="org-ul">
+<li>For k-th step, assume that elements a[1], &#x2026; , a[k-1] are already sorted in order.</li>
+<li>Locate a[k] between index 1, &#x2026; ,k so that all a[1], &#x2026;, a[k] are in order</li>
+<li>Move the focus to k+1-th element and repeat the same step</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfcfc130" class="outline-4">
+<h4 id="orgfcfc130">Merge Sort</h4>
+<div class="outline-text-4" id="text-orgfcfc130">
+<ul class="org-ul">
+<li>Concept behind merge sort is relatively simple</li>
+<li>Keep splitting the array into halves until each subarray is size 1</li>
+<li>Then recursively merge two subarrays at a time</li>
+<li>Time complexity: <b>O(nlogn)</b></li>
+</ul>
+
+<p>
+Two functions are needed to accomplish this
+</p>
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #606580; font-weight: bold;">#</span><span style="color: #606580; font-weight: bold;">'</span><span style="color: #606580;"> merge() : merge two sorted vectors in O(n)</span>
+<span style="color: #606580; font-weight: bold;">#</span><span style="color: #606580; font-weight: bold;">'</span><span style="color: #606580;"> </span><span style="color: #ffb86c;">@param</span><span style="color: #606580;"> </span><span style="color: #ff5c57;">a</span><span style="color: #606580;"> - A sorted numeric vector</span>
+<span style="color: #606580; font-weight: bold;">#</span><span style="color: #606580; font-weight: bold;">'</span><span style="color: #606580;"> </span><span style="color: #ffb86c;">@param</span><span style="color: #606580;"> </span><span style="color: #ff5c57;">b</span><span style="color: #606580;"> - Another sorted numeric vector</span>
+<span style="color: #606580; font-weight: bold;">#</span><span style="color: #606580; font-weight: bold;">'</span><span style="color: #606580;"> </span><span style="color: #ffb86c;">@return</span><span style="color: #606580;"> A sorted vector merging a and b</span>
+merge = <span style="color: #ffb86c;">function</span>(a,b) {
+    r = numeric(length(a)+length(b)) <span style="color: #606580;"># </span><span style="color: #606580;">make an empty vector</span>
+    i=<span style="color: #f3f99d; font-weight: bold;">1</span>; j=<span style="color: #f3f99d; font-weight: bold;">1</span> <span style="color: #606580;"># </span><span style="color: #606580;">i and j are indices for a and b</span>
+    <span style="color: #ffb86c;">for</span>(k <span style="color: #ffb86c;">in</span> <span style="color: #f3f99d; font-weight: bold;">1</span>:length(r)) {
+      <span style="color: #606580;">## </span><span style="color: #606580;">if b is used up or a[i] &lt; b[j], copy from a</span>
+      <span style="color: #ffb86c;">if</span> ( ( j &gt; length(b) ) || ( i &lt;= length(a) &amp;&amp; a[i]&lt;b[j] ) ) {
+        r[k] = a[i]
+        i = i + <span style="color: #f3f99d; font-weight: bold;">1</span>
+      } <span style="color: #ffb86c;">else</span> {  <span style="color: #606580;">## </span><span style="color: #606580;">otherwise, copy from b</span>
+        r[k] = b[j]
+        j = j + <span style="color: #f3f99d; font-weight: bold;">1</span>
+      }
+    }
+    <span style="color: #ffb86c;">return</span>(r) <span style="color: #606580;">## </span><span style="color: #606580;">return the merged vector</span>
+}
+
+<span style="color: #606580; font-weight: bold;">#</span><span style="color: #606580; font-weight: bold;">'</span><span style="color: #606580;"> mergeSort() : sort an array in O(n log n)</span>
+<span style="color: #606580; font-weight: bold;">#</span><span style="color: #606580; font-weight: bold;">'</span><span style="color: #606580;"> </span><span style="color: #ffb86c;">@param</span><span style="color: #606580;"> </span><span style="color: #ff5c57;">x</span><span style="color: #606580;"> A unsorted numeric vector</span>
+<span style="color: #606580; font-weight: bold;">#</span><span style="color: #606580; font-weight: bold;">'</span><span style="color: #606580;"> </span><span style="color: #ffb86c;">@return</span><span style="color: #606580;"> A sorted version of x</span>
+mergeSort = <span style="color: #ffb86c;">function</span>(x) {
+    <span style="color: #ffb86c;">if</span>(length(x)&gt;<span style="color: #f3f99d; font-weight: bold;">1</span>) {   <span style="color: #606580;">## </span><span style="color: #606580;">if the element size is greater than 1, keep dividing</span>
+        mid = ceiling(length(x)/<span style="color: #f3f99d; font-weight: bold;">2</span>)          <span style="color: #606580;"># </span><span style="color: #606580;">find the midpoint</span>
+        a = mergeSort(x[<span style="color: #f3f99d; font-weight: bold;">1</span>:mid])             <span style="color: #606580;"># </span><span style="color: #606580;">divide - part 1</span>
+        b = mergeSort(x[(mid+<span style="color: #f3f99d; font-weight: bold;">1</span>):length(x)]) <span style="color: #606580;"># </span><span style="color: #606580;">divide - part 2</span>
+        <span style="color: #ffb86c;">return</span>( merge(a,b) )                <span style="color: #606580;"># </span><span style="color: #606580;">combine the sorted solutions - to me implemented</span>
+    } <span style="color: #ffb86c;">else</span> {  <span style="color: #606580;"># </span><span style="color: #606580;">terminating condition - only 1 element left</span>
+        <span style="color: #ffb86c;">return</span> (x)
+    }
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>most of the lower level languages are using quick sort</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org66dfc21" class="outline-2">
+<h2 id="org66dfc21">Lecture 5 | Matrix Computation</h2>
+<div class="outline-text-2" id="text-org66dfc21">
+</div>
+<div id="outline-container-orgb2d42b8" class="outline-3">
+<h3 id="orgb2d42b8">Algorithms for matrix computation</h3>
+<div class="outline-text-3" id="text-orgb2d42b8">
+<ul class="org-ul">
+<li>Why do matrices matter?
+<ul class="org-ul">
+<li>Many statistical models can be represented as matrices</li>
+<li>Efficeient matric computation can make a difference in the practicality of a method</li>
+<li>Understanding R implementation of matrix operation can expedite the efficiency by orders of magnitude</li>
+</ul></li>
+
+<li>Time compexity is not everything
+<ul class="org-ul">
+<li>Explains how scalable the algorithm is relative to the increase in the size of input data</li>
+<li>The <b>absolute</b> computational time on an algorithm may depend on the implementation details</li>
+<li>For example, using a loop inside of R is not usually recommended&#x2026; slows down implementation by quite a bit</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf12643c" class="outline-2">
+<h2 id="orgf12643c">Lecture 6 | Matrix Computation cont.</h2>
+<div class="outline-text-2" id="text-orgf12643c">
+</div>
+<div id="outline-container-orgf6100b3" class="outline-3">
+<h3 id="orgf6100b3">BLAS/LAPACK</h3>
+<div class="outline-text-3" id="text-orgf6100b3">
+<ul class="org-ul">
+<li>BLAS: implements low-level routines for linear algebra</li>
+<li>LAPACK: implements key algorithms for linear algebra such as matrix decomposition and linear systems solver</li>
+<li>Why are they so fast?
+
+<ol class="org-ol">
+<li>Vectorization</li>
+<li>Multithreading</li>
+<li>Cache Optimization</li>
+</ol></li>
+
+<li>Important to be able to recognize when matrix multiplication is computationally expensive</li>
+<li>ORDER MATTERS!</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org905da41" class="outline-3">
+<h3 id="org905da41">Quadratic multiplication</h3>
+<div class="outline-text-3" id="text-org905da41">
+<ul class="org-ul">
+<li>Consider computing \(x'Ax\) where \(A=LL'\) (Cholesky decomposition)</li>
+<li>\(u=L'x\) can be computed more efficiently than \(Ax\)</li>
+<li>\(x'Ax=u'u\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5202d6e" class="outline-3">
+<h3 id="org5202d6e">Matrix decompisition and solving linear systems</h3>
+</div>
+</div>
+<div id="outline-container-orgce65f82" class="outline-2">
+<h2 id="orgce65f82">Assignments:</h2>
+<div class="outline-text-2" id="text-orgce65f82">
+</div>
+<div id="outline-container-orgbc2d9cd" class="outline-3">
+<h3 id="orgbc2d9cd">Learning Ex. 1:</h3>
+<div class="outline-text-3" id="text-orgbc2d9cd">
+<ul class="org-ul">
+<li>`intToBits()` converts to 64-bit by default AND in reversed order. In order to complete this task we need to reverse the order of the vector and remove every even element.</li>
+<li>This can be completed to satisfaction with brute force by following this logic:
+<ul class="org-ul">
+<li>Check if passed-value is an integer, check if passed-value is numeric (numeric values are 64-bit in base R), check if passed-value is within the bounds of a 32-bit integer value. IF any of these conditions are met, then we want the function to return NA. Otherwise&#x2026;</li>
+<li>Convert to bits -&gt; collapse vector into str -&gt; re-vectorize with each int as its own index -&gt; reverse the vector -&gt; remove the even elements -&gt; collapse vector into string again.</li>
+</ul></li>
+<li>That said, we want to find a more efficient way to solve this.</li>
+<li>R base has only one numeric (float) type which is 64 bit.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6566acb" class="outline-3">
+<h3 id="org6566acb">Code</h3>
+<div class="outline-text-3" id="text-org6566acb">
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #57c7ff;">int2BinaryStr</span> <span style="color: #5af78e;">&lt;-</span> <span style="color: #ffb86c;">function</span>(n) {
+  <span style="color: #ffb86c;">if</span> (!is.numeric(n) || floor(n) != n || n &lt; -<span style="color: #f3f99d; font-weight: bold;">2</span>^<span style="color: #f3f99d; font-weight: bold;">31</span> || n &gt; <span style="color: #f3f99d; font-weight: bold;">2</span>^<span style="color: #f3f99d; font-weight: bold;">31</span> - <span style="color: #f3f99d; font-weight: bold;">1</span>) {
+    <span style="color: #ffb86c;">return</span>(<span style="color: #9aedfe;">NA</span>)
+  }
+
+  binary_str <span style="color: #5af78e;">&lt;-</span> past(rev(as.integer(intToBits(as.integer(n)))), collaple=<span style="color: #f3f99d;">""")</span>
+
+<span style="color: #f3f99d;">  return(binary_str)</span>
+<span style="color: #f3f99d;">}</span>
+</pre>
+</div>
+</div>
+<div id="outline-container-orgde865a4" class="outline-4">
+<h4 id="orgde865a4">Code Breakdown</h4>
+<div class="outline-text-4" id="text-orgde865a4">
+<ul class="org-ul">
+<li>r{!is.numeric(n)}: checking if number is not a numeric. Base R treats numeric values as 64-bit</li>
+<li>r{floor(n) != n}: checking if n is not an integer</li>
+<li>r{n &lt; -2^32 || n &gt; 2^31}: checks if n is within the range of 32-bit integer values</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org09de879" class="outline-3">
+<h3 id="org09de879">Learning Ex. 2:</h3>
+</div>
+
+<div id="outline-container-orgd81c1a9" class="outline-3">
+<h3 id="orgd81c1a9">Code</h3>
+</div>
+</div>
+</div>
+</body>
+</html>

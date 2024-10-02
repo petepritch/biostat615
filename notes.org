@@ -1,7 +1,10 @@
 #+title: BIOSTAT 615 Notes
 #+description: Organization File For BIOSTATS 615 @ The University of Michigan, Ann Arbor
 #+author: Pete Pritchard
-
+#+LANGUAGE:  en
+#+STARTUP:   content showstars indent inlineimages hideblocks
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="custom.css"/>
+#+OPTIONS:   toc:2 html-scripts:nil num:nil html-postamble:nil html-style:nil ^:nil
 * Course Logistics
 
 ** Class Times:
