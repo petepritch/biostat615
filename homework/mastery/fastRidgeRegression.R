@@ -13,25 +13,39 @@
 fastRidgeRegression <- function(X, Y, lambda) {
   # Dimension of design matrix
   X_dim <- dim(X)
-  if (X_dim[1] > p) { # Cholesky
+  if (X_dim[1] > X_dim[2]) { # Cholesky
     # Compute A
-    A <- crossprod(X) + crossprod(lambda, diag(X_dim[2]))
+    A <- t(X) %*% X + lambda * diag(X_dim[2])
     # Compute B
-    b <- crossprod(X, y)
+    b <- t(X) %*% Y
     # Decompose A
     U <- chol(A)
     # Foward substitution
-    z <- fowardsolve(U, A, upper.tri=TRUE, transpose=TRUE)
-    # Backward substitution and return result
-    return(backsolve(U, z))
+    z <- forwardsolve(t(U), b)
+    # Backward substitution andstore betas
+    betas <- backsolve(U, z)
+
   } else { # Some other way
-
-    K <- X %*% t(T)
-
-    alpha <- solve(K + crossprod(lambda, diag(X_dim[2])), y)
-
-    beta <- t(X) %*% alpha
+    # Compute X transpose X
+    K <- X %*% t(X)
+    # Solve for alpha
+    alpha <- solve(K + lambda * diag(X_dim[1]), Y)
+    # store betas
+    betas <- t(X) %*% alpha
   }
+  # Round betas to nearest int
+  betas <- round(betas)
+  # Indices of non-zero betas
+  zero_index <- which(betas != 0)
+  # Return empty df if all zeros
+  if (length(zero_index) == 0) {
+    return(data.frame(index = integer(0), beta = integer(0)))
+  }
+  # Result dataframe
+  df <- data.frame(
+    index = zero_index,
+    beta = betas[zero_index]
+  )
 
-  return()
+  return(df)
 }
