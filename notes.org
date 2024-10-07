@@ -370,6 +370,47 @@ mergeSort = function(x) {
 
 - Suppose $f'(x^*)\neq 0$. If $x_0$ is sifficiently close to $x^*$, then secant method has $e_{n+2} \approx Ce_{n+1}e_n$, thus it converges of order $\frac{\sqrt{5} + 1}{2} \approx 1.618$.
 
+
+** Minimization Algorithms
+
+Global problems are typically very hard problems to solve. The goal is to find the lowest possible value of the function. Local minimum is a relatively easier problem to solve... finding the smallest value within a finite neighborhood.
+
+Problem goes as follows:
+
+1. Consider a complex function $F(x)$ (e.g. likelihood)
+2. Find $x$ which $F(x)$ is a maximum or minimum value
+3. Maximicaition and minimzation are equivalent
+   + Replace $F(x)$ with $-F(x)$
+
+A function may be costly to evaluate. The derivative of $F$ is not easly to evaluate, so we want to find the minumum of $F$ without the derivative. The strategy is as follows:
+
+1. Find 3 points $a,b,c$ s.t.
+   + $a<b<c$
+   + $F(b)< F(a)$ and $F(b) < F(c)$
+2. Then search for the minimum by
+   + Selecting trial point in the intercal $[a,c]$
+   + Keep minumum and flanking points
+
+*** Finding a bracketing interval
+
+Goal: startign from two points $a_0$ and $b_0$, find $a,b,c$ s.t. $a<b<c$, $F(b) < F(a)$ and $F(b) < F(c)$. Given these three points, how do we select a new trial point?
+
+We want to minmize the size of the next search interval, which will be either $A$ to $X$ or from $B$ to $C$
+
+Define
+
+\begin{equation*}
+        w = \frac{|AB|}{|AC|} = \frac{b-a}{c-a}, z = \frac{BX}{AC} = \frac{x-b}{c-a}
+\end{equation*}
+
+Segments will have either length $|BC| = (1-w)|AC|$ or $|AX|=(x+z)|AC|$.
+
+Optimal case:
+
++ The two possible next search intervals have the same length
++ The proportion of reducing the interval lengths remains the same over iterations
+
+
 * Assignments:
 
 ** Learning Ex. 1:
