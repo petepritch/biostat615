@@ -3,14 +3,198 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-10-07 Mon 09:19 -->
+<!-- 2024-10-09 Wed 11:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>BIOSTAT 615 Notes</title>
 <meta name="author" content="Pete Pritchard" />
 <meta name="description" content="Organization File For BIOSTATS 615 @ The University of Michigan, Ann Arbor" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="custom.css"/>
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 <script>
   window.MathJax = {
     tex: {
@@ -51,85 +235,127 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1198e8a">Course Logistics</a>
+<li><a href="#org3f5cdfd">1. Course Logistics</a>
 <ul>
-<li><a href="#org0d6d5ad">Class Times:</a></li>
-<li><a href="#orgf5ac13c">Intructor: Hyun Ming Kan</a></li>
-<li><a href="#org85eb36e">GSI: Longhao Pang</a></li>
+<li><a href="#orgb989f5c">1.1. Class Times:</a></li>
+<li><a href="#orgd70a9fc">1.2. Intructor: Hyun Ming Kan</a></li>
+<li><a href="#org19b6b09">1.3. GSI: Longhao Pang</a></li>
 </ul>
 </li>
-<li><a href="#org63fe4ec">Lecture 1 08-26</a>
+<li><a href="#org9328db5">2. Lecture 1 08-26</a>
 <ul>
-<li><a href="#org94a7e9e">Primarily a couse logistics and syllabus overview.</a></li>
+<li><a href="#org417d7e3">2.1. Primarily a couse logistics and syllabus overview.</a></li>
 </ul>
 </li>
-<li><a href="#org05baf69">Lecture 2 8-28 | Numerical Precision and Relative Error</a>
+<li><a href="#org087924d">3. Lecture 2 8-28 | Numerical Precision and Relative Error</a>
 <ul>
-<li><a href="#org16b9200">Computer representation of numbers</a></li>
-<li><a href="#org57f3aa5">Bit and Byte</a></li>
-<li><a href="#orgc16f10f">R Storage</a></li>
-<li><a href="#orgc6ce3fe">Floating point representation</a></li>
-<li><a href="#org90f1786">Errors</a></li>
+<li><a href="#orga616a6b">3.1. Computer representation of numbers</a></li>
+<li><a href="#orgb08255c">3.2. Bit and Byte</a></li>
+<li><a href="#orgf92c11e">3.3. R Storage</a></li>
+<li><a href="#orgdb87197">3.4. Floating point representation</a></li>
+<li><a href="#org2704441">3.5. Errors</a>
+<ul>
+<li><a href="#org5c23155">3.5.1. Relative erros in double precision</a></li>
 </ul>
 </li>
-<li><a href="#org9e1e31d">Lecture 3 9-04 | Numerical Precision and Relatove Error Cont.</a>
-<ul>
-<li><a href="#orgba72160">Quick notes:</a></li>
-<li><a href="#org8f63144">Precision errors with quadratic equation</a></li>
-<li><a href="#orge5d7e7d">West Algorithm</a></li>
 </ul>
 </li>
-<li><a href="#org9f7dd77">Lecture 4 9-09 | Divide &amp; Conquer</a>
+<li><a href="#org34cccca">4. Lecture 3 9-04 | Numerical Precision and Relatove Error Cont.</a>
 <ul>
-<li><a href="#org0b9f8d0">Time Complexity</a></li>
-<li><a href="#orgd08396c">Recursion</a></li>
-<li><a href="#orgd17b053">Divide and Conquer Algorithm</a></li>
+<li><a href="#org9aaff61">4.1. Quick notes:</a></li>
+<li><a href="#orga8ab727">4.2. Precision errors with quadratic equation</a></li>
+<li><a href="#org291d76b">4.3. West Algorithm</a>
+<ul>
+<li><a href="#orgca89a97">4.3.1. Algorithms (def)</a></li>
+<li><a href="#org0f25d14">4.3.2. Key features of a good algorithm</a></li>
 </ul>
 </li>
-<li><a href="#orge74077d">Lecture 5 | Matrix Computation</a>
-<ul>
-<li><a href="#org2824f74">Algorithms for matrix computation</a></li>
 </ul>
 </li>
-<li><a href="#org00cb65c">Lecture 6 | Matrix Computation cont.</a>
+<li><a href="#orgdd5f3f6">5. Lecture 4 9-09 | Divide &amp; Conquer</a>
 <ul>
-<li><a href="#org8832973">BLAS/LAPACK</a></li>
-<li><a href="#orgb262e2f">Quadratic multiplication</a></li>
-<li><a href="#org5c34392">Matrix decompisition and solving linear systems</a></li>
+<li><a href="#orgd95cb9b">5.1. Time Complexity</a></li>
+<li><a href="#orgb706572">5.2. Recursion</a></li>
+<li><a href="#org4c4d1fc">5.3. Divide and Conquer Algorithm</a>
+<ul>
+<li><a href="#org9c8ab75">5.3.1. Insertion Sort</a></li>
+<li><a href="#org3d94ba7">5.3.2. Merge Sort</a></li>
 </ul>
 </li>
-<li><a href="#org111f21d">Single Dimension Optimization Methods</a>
-<ul>
-<li><a href="#org5cbafc7">Root Finding</a></li>
-<li><a href="#orgcec34fe">Minimization Algorithms</a></li>
 </ul>
 </li>
-<li><a href="#org6c817da">Assignments:</a>
+<li><a href="#orge70ad32">6. Lecture 5 | Matrix Computation</a>
 <ul>
-<li><a href="#org3bd544c">Learning Ex. 1:</a></li>
-<li><a href="#orgb42dec5">Code</a></li>
-<li><a href="#org2d6555f">Learning Ex. 2:</a></li>
-<li><a href="#orge667cf4">Code</a></li>
+<li><a href="#org3624c41">6.1. Algorithms for matrix computation</a></li>
+</ul>
+</li>
+<li><a href="#orgac77fb3">7. Lecture 6 | Matrix Computation cont.</a>
+<ul>
+<li><a href="#orgec32148">7.1. BLAS/LAPACK</a></li>
+<li><a href="#orgc2cedff">7.2. Quadratic multiplication</a></li>
+<li><a href="#org1d0b319">7.3. Matrix decompisition and solving linear systems</a></li>
+</ul>
+</li>
+<li><a href="#org2ad9590">8. Single Dimension Optimization Methods</a>
+<ul>
+<li><a href="#org6cc11d5">8.1. Root Finding</a>
+<ul>
+<li><a href="#org6c28682">8.1.1. Bisection Method</a></li>
+<li><a href="#org8a8adbc">8.1.2. Fixed Point Iteration</a></li>
+<li><a href="#orga4e255e">8.1.3. Newton-Raphson Method</a></li>
+<li><a href="#org4530698">8.1.4. The Secant Method</a></li>
+</ul>
+</li>
+<li><a href="#org6209fe5">8.2. Minimization Algorithms</a>
+<ul>
+<li><a href="#orgcda130d">8.2.1. Finding a bracketing interval</a></li>
+<li><a href="#orgaa4276b">8.2.2. Parabolic Approximation</a></li>
+<li><a href="#org5230961">8.2.3. Brent&rsquo;s Method (1973)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgcd9905d">9. Multi-dimensional Optimization</a>
+<ul>
+<li><a href="#org87d902b">9.1. Coordinate descent</a></li>
+<li><a href="#orgdce5331">9.2. Nelder-Mead method</a>
+<ul>
+<li><a href="#orgff8626d">9.2.1. Code</a></li>
+</ul>
+</li>
+<li><a href="#org9506615">9.3. Gradient Descent</a></li>
+</ul>
+</li>
+<li><a href="#org872bf7c">10. Assignments:</a>
+<ul>
+<li><a href="#org2f87bc8">10.1. Learning Ex. 1:</a></li>
+<li><a href="#org04f9556">10.2. Code</a>
+<ul>
+<li><a href="#org34e8a85">10.2.1. Code Breakdown</a></li>
+</ul>
+</li>
+<li><a href="#org11189bd">10.3. Learning Ex. 2:</a></li>
+<li><a href="#org9a63909">10.4. Code</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1198e8a" class="outline-2">
-<h2 id="org1198e8a">Course Logistics</h2>
-<div class="outline-text-2" id="text-org1198e8a">
+<div id="outline-container-org3f5cdfd" class="outline-2">
+<h2 id="org3f5cdfd"><span class="section-number-2">1.</span> Course Logistics</h2>
+<div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org0d6d5ad" class="outline-3">
-<h3 id="org0d6d5ad">Class Times:</h3>
-<div class="outline-text-3" id="text-org0d6d5ad">
+<div id="outline-container-orgb989f5c" class="outline-3">
+<h3 id="orgb989f5c"><span class="section-number-3">1.1.</span> Class Times:</h3>
+<div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>M/W 8:30am-10am, 1690 SPH I</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf5ac13c" class="outline-3">
-<h3 id="orgf5ac13c">Intructor: Hyun Ming Kan</h3>
-<div class="outline-text-3" id="text-orgf5ac13c">
+<div id="outline-container-orgd70a9fc" class="outline-3">
+<h3 id="orgd70a9fc"><span class="section-number-3">1.2.</span> Intructor: Hyun Ming Kan</h3>
+<div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>email: hmkang@umich.edu</li>
 <li>Office Hours:
@@ -140,9 +366,9 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org85eb36e" class="outline-3">
-<h3 id="org85eb36e">GSI: Longhao Pang</h3>
-<div class="outline-text-3" id="text-org85eb36e">
+<div id="outline-container-org19b6b09" class="outline-3">
+<h3 id="org19b6b09"><span class="section-number-3">1.3.</span> GSI: Longhao Pang</h3>
+<div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>email: lhpang@umich.edu</li>
 <li>Office Hours:
@@ -153,21 +379,21 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org63fe4ec" class="outline-2">
-<h2 id="org63fe4ec">Lecture 1 08-26</h2>
-<div class="outline-text-2" id="text-org63fe4ec">
+<div id="outline-container-org9328db5" class="outline-2">
+<h2 id="org9328db5"><span class="section-number-2">2.</span> Lecture 1 08-26</h2>
+<div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org94a7e9e" class="outline-3">
-<h3 id="org94a7e9e">Primarily a couse logistics and syllabus overview.</h3>
+<div id="outline-container-org417d7e3" class="outline-3">
+<h3 id="org417d7e3"><span class="section-number-3">2.1.</span> Primarily a couse logistics and syllabus overview.</h3>
 </div>
 </div>
-<div id="outline-container-org05baf69" class="outline-2">
-<h2 id="org05baf69">Lecture 2 8-28 | Numerical Precision and Relative Error</h2>
-<div class="outline-text-2" id="text-org05baf69">
+<div id="outline-container-org087924d" class="outline-2">
+<h2 id="org087924d"><span class="section-number-2">3.</span> Lecture 2 8-28 | Numerical Precision and Relative Error</h2>
+<div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org16b9200" class="outline-3">
-<h3 id="org16b9200">Computer representation of numbers</h3>
-<div class="outline-text-3" id="text-org16b9200">
+<div id="outline-container-orga616a6b" class="outline-3">
+<h3 id="orga616a6b"><span class="section-number-3">3.1.</span> Computer representation of numbers</h3>
+<div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Computer operations must work with representation of numbers that accomplished by transitors
 <ul class="org-ul">
@@ -197,9 +423,9 @@ intToBits(<span style="color: #7FC1CA; font-weight: bold;">128</span>)
 </div>
 </div>
 </div>
-<div id="outline-container-org57f3aa5" class="outline-3">
-<h3 id="org57f3aa5">Bit and Byte</h3>
-<div class="outline-text-3" id="text-org57f3aa5">
+<div id="outline-container-orgb08255c" class="outline-3">
+<h3 id="orgb08255c"><span class="section-number-3">3.2.</span> Bit and Byte</h3>
+<div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li><b>Bit</b>: the basic unit of information in computing and digital communications</li>
 <li><b>Byte</b>: a unit of storing digital information in memory, consisting of <b>eight bits</b>
@@ -269,9 +495,9 @@ print(s+s)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc16f10f" class="outline-3">
-<h3 id="orgc16f10f">R Storage</h3>
-<div class="outline-text-3" id="text-orgc16f10f">
+<div id="outline-container-orgf92c11e" class="outline-3">
+<h3 id="orgf92c11e"><span class="section-number-3">3.3.</span> R Storage</h3>
+<div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Primative data types in R
 <ol class="org-ol">
@@ -288,9 +514,9 @@ print(s+s)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc6ce3fe" class="outline-3">
-<h3 id="orgc6ce3fe">Floating point representation</h3>
-<div class="outline-text-3" id="text-orgc6ce3fe">
+<div id="outline-container-orgdb87197" class="outline-3">
+<h3 id="orgdb87197"><span class="section-number-3">3.4.</span> Floating point representation</h3>
+<div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li><b>Q</b>: Can a computer precisely store an irrational number? Why?
 <ul class="org-ul">
@@ -299,15 +525,15 @@ print(s+s)
 </ul>
 </div>
 </div>
-<div id="outline-container-org90f1786" class="outline-3">
-<h3 id="org90f1786">Errors</h3>
-<div class="outline-text-3" id="text-org90f1786">
+<div id="outline-container-org2704441" class="outline-3">
+<h3 id="org2704441"><span class="section-number-3">3.5.</span> Errors</h3>
+<div class="outline-text-3" id="text-3-5">
 </div>
-<div id="outline-container-orgb3d441c" class="outline-4">
-<h4 id="orgb3d441c">Relative erros in double precision</h4>
-<div class="outline-text-4" id="text-orgb3d441c">
+<div id="outline-container-org5c23155" class="outline-4">
+<h4 id="org5c23155"><span class="section-number-4">3.5.1.</span> Relative erros in double precision</h4>
+<div class="outline-text-4" id="text-3-5-1">
 <ul class="org-ul">
-<li>Upper bound of relative erross: <i>(</i> 2^{-(m+1)} ) where <i>m</i> is the signficand bits</li>
+<li>Upper bound of relative erross: <i>(</i> 2<sup>-(m+1)</sup> ) where <i>m</i> is the signficand bits</li>
 <li>For relative precision (double) <i>m</i> = 52</li>
 <li><p>
 The relative error of double precision is
@@ -320,13 +546,13 @@ The relative error of double precision is
 </div>
 </div>
 </div>
-<div id="outline-container-org9e1e31d" class="outline-2">
-<h2 id="org9e1e31d">Lecture 3 9-04 | Numerical Precision and Relatove Error Cont.</h2>
-<div class="outline-text-2" id="text-org9e1e31d">
+<div id="outline-container-org34cccca" class="outline-2">
+<h2 id="org34cccca"><span class="section-number-2">4.</span> Lecture 3 9-04 | Numerical Precision and Relatove Error Cont.</h2>
+<div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgba72160" class="outline-3">
-<h3 id="orgba72160">Quick notes:</h3>
-<div class="outline-text-3" id="text-orgba72160">
+<div id="outline-container-org9aaff61" class="outline-3">
+<h3 id="org9aaff61"><span class="section-number-3">4.1.</span> Quick notes:</h3>
+<div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>For the mastery assignements there will be no test cases to check like with the learning asssignments</li>
 <li>However, there will be a google collab file that will help you test and debug</li>
@@ -334,22 +560,22 @@ The relative error of double precision is
 </ul>
 </div>
 </div>
-<div id="outline-container-org8f63144" class="outline-3">
-<h3 id="org8f63144">Precision errors with quadratic equation</h3>
-<div class="outline-text-3" id="text-org8f63144">
+<div id="outline-container-orga8ab727" class="outline-3">
+<h3 id="orga8ab727"><span class="section-number-3">4.2.</span> Precision errors with quadratic equation</h3>
+<div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
-<li>The challange: (/ | 4b_{2}b_{0} | &lt;&lt; b^{2}_{2} /)</li>
+<li>The challange: (/ | 4b<sub>2</sub>b<sub>0</sub> | &lt;&lt; b<sup>2</sup><sub>2</sub> /)</li>
 <li>Not accurate in terms in relative error in some cases</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge5d7e7d" class="outline-3">
-<h3 id="orge5d7e7d">West Algorithm</h3>
-<div class="outline-text-3" id="text-orge5d7e7d">
+<div id="outline-container-org291d76b" class="outline-3">
+<h3 id="org291d76b"><span class="section-number-3">4.3.</span> West Algorithm</h3>
+<div class="outline-text-3" id="text-4-3">
 </div>
-<div id="outline-container-org9cc3e40" class="outline-4">
-<h4 id="org9cc3e40">Algorithms (def)</h4>
-<div class="outline-text-4" id="text-org9cc3e40">
+<div id="outline-container-orgca89a97" class="outline-4">
+<h4 id="orgca89a97"><span class="section-number-4">4.3.1.</span> Algorithms (def)</h4>
+<div class="outline-text-4" id="text-4-3-1">
 <ul class="org-ul">
 <li>loose definition: a sequence of well-defined computational steps</li>
 <li>takes a set of values</li>
@@ -357,9 +583,9 @@ The relative error of double precision is
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd898af5" class="outline-4">
-<h4 id="orgd898af5">Key features of a good algorithm</h4>
-<div class="outline-text-4" id="text-orgd898af5">
+<div id="outline-container-org0f25d14" class="outline-4">
+<h4 id="org0f25d14"><span class="section-number-4">4.3.2.</span> Key features of a good algorithm</h4>
+<div class="outline-text-4" id="text-4-3-2">
 <ul class="org-ul">
 <li>Correctness</li>
 <li>Efficiency</li>
@@ -373,13 +599,13 @@ The relative error of double precision is
 </div>
 </div>
 </div>
-<div id="outline-container-org9f7dd77" class="outline-2">
-<h2 id="org9f7dd77">Lecture 4 9-09 | Divide &amp; Conquer</h2>
-<div class="outline-text-2" id="text-org9f7dd77">
+<div id="outline-container-orgdd5f3f6" class="outline-2">
+<h2 id="orgdd5f3f6"><span class="section-number-2">5.</span> Lecture 4 9-09 | Divide &amp; Conquer</h2>
+<div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org0b9f8d0" class="outline-3">
-<h3 id="org0b9f8d0">Time Complexity</h3>
-<div class="outline-text-3" id="text-org0b9f8d0">
+<div id="outline-container-orgd95cb9b" class="outline-3">
+<h3 id="orgd95cb9b"><span class="section-number-3">5.1.</span> Time Complexity</h3>
+<div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Why is it important?
 <ul class="org-ul">
@@ -413,9 +639,9 @@ The relative error of double precision is
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd08396c" class="outline-3">
-<h3 id="orgd08396c">Recursion</h3>
-<div class="outline-text-3" id="text-orgd08396c">
+<div id="outline-container-orgb706572" class="outline-3">
+<h3 id="orgb706572"><span class="section-number-3">5.2.</span> Recursion</h3>
+<div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Key components
 <ul class="org-ul">
@@ -427,9 +653,9 @@ The relative error of double precision is
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd17b053" class="outline-3">
-<h3 id="orgd17b053">Divide and Conquer Algorithm</h3>
-<div class="outline-text-3" id="text-orgd17b053">
+<div id="outline-container-org4c4d1fc" class="outline-3">
+<h3 id="org4c4d1fc"><span class="section-number-3">5.3.</span> Divide and Conquer Algorithm</h3>
+<div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>Solve a problem recursively, applying three steps at each level of recursion
 
@@ -440,9 +666,9 @@ The relative error of double precision is
 </ol></li>
 </ul>
 </div>
-<div id="outline-container-org9f79814" class="outline-4">
-<h4 id="org9f79814">Insertion Sort</h4>
-<div class="outline-text-4" id="text-org9f79814">
+<div id="outline-container-org9c8ab75" class="outline-4">
+<h4 id="org9c8ab75"><span class="section-number-4">5.3.1.</span> Insertion Sort</h4>
+<div class="outline-text-4" id="text-5-3-1">
 <ul class="org-ul">
 <li>For k-th step, assume that elements a[1], &#x2026; , a[k-1] are already sorted in order.</li>
 <li>Locate a[k] between index 1, &#x2026; ,k so that all a[1], &#x2026;, a[k] are in order</li>
@@ -450,9 +676,9 @@ The relative error of double precision is
 </ul>
 </div>
 </div>
-<div id="outline-container-org8d0f56f" class="outline-4">
-<h4 id="org8d0f56f">Merge Sort</h4>
-<div class="outline-text-4" id="text-org8d0f56f">
+<div id="outline-container-org3d94ba7" class="outline-4">
+<h4 id="org3d94ba7"><span class="section-number-4">5.3.2.</span> Merge Sort</h4>
+<div class="outline-text-4" id="text-5-3-2">
 <ul class="org-ul">
 <li>Concept behind merge sort is relatively simple</li>
 <li>Keep splitting the array into halves until each subarray is size 1</li>
@@ -507,13 +733,13 @@ mergeSort = <span style="color: #9A93E1;">function</span>(x) {
 </div>
 </div>
 </div>
-<div id="outline-container-orge74077d" class="outline-2">
-<h2 id="orge74077d">Lecture 5 | Matrix Computation</h2>
-<div class="outline-text-2" id="text-orge74077d">
+<div id="outline-container-orge70ad32" class="outline-2">
+<h2 id="orge70ad32"><span class="section-number-2">6.</span> Lecture 5 | Matrix Computation</h2>
+<div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org2824f74" class="outline-3">
-<h3 id="org2824f74">Algorithms for matrix computation</h3>
-<div class="outline-text-3" id="text-org2824f74">
+<div id="outline-container-org3624c41" class="outline-3">
+<h3 id="org3624c41"><span class="section-number-3">6.1.</span> Algorithms for matrix computation</h3>
+<div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>Why do matrices matter?
 <ul class="org-ul">
@@ -532,13 +758,13 @@ mergeSort = <span style="color: #9A93E1;">function</span>(x) {
 </div>
 </div>
 </div>
-<div id="outline-container-org00cb65c" class="outline-2">
-<h2 id="org00cb65c">Lecture 6 | Matrix Computation cont.</h2>
-<div class="outline-text-2" id="text-org00cb65c">
+<div id="outline-container-orgac77fb3" class="outline-2">
+<h2 id="orgac77fb3"><span class="section-number-2">7.</span> Lecture 6 | Matrix Computation cont.</h2>
+<div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org8832973" class="outline-3">
-<h3 id="org8832973">BLAS/LAPACK</h3>
-<div class="outline-text-3" id="text-org8832973">
+<div id="outline-container-orgec32148" class="outline-3">
+<h3 id="orgec32148"><span class="section-number-3">7.1.</span> BLAS/LAPACK</h3>
+<div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>BLAS: implements low-level routines for linear algebra</li>
 <li>LAPACK: implements key algorithms for linear algebra such as matrix decomposition and linear systems solver</li>
@@ -555,9 +781,9 @@ mergeSort = <span style="color: #9A93E1;">function</span>(x) {
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb262e2f" class="outline-3">
-<h3 id="orgb262e2f">Quadratic multiplication</h3>
-<div class="outline-text-3" id="text-orgb262e2f">
+<div id="outline-container-orgc2cedff" class="outline-3">
+<h3 id="orgc2cedff"><span class="section-number-3">7.2.</span> Quadratic multiplication</h3>
+<div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>Consider computing \(x'Ax\) where \(A=LL'\) (Cholesky decomposition)</li>
 <li>\(u=L'x\) can be computed more efficiently than \(Ax\)</li>
@@ -565,17 +791,17 @@ mergeSort = <span style="color: #9A93E1;">function</span>(x) {
 </ul>
 </div>
 </div>
-<div id="outline-container-org5c34392" class="outline-3">
-<h3 id="org5c34392">Matrix decompisition and solving linear systems</h3>
+<div id="outline-container-org1d0b319" class="outline-3">
+<h3 id="org1d0b319"><span class="section-number-3">7.3.</span> Matrix decompisition and solving linear systems</h3>
 </div>
 </div>
-<div id="outline-container-org111f21d" class="outline-2">
-<h2 id="org111f21d">Single Dimension Optimization Methods</h2>
-<div class="outline-text-2" id="text-org111f21d">
+<div id="outline-container-org2ad9590" class="outline-2">
+<h2 id="org2ad9590"><span class="section-number-2">8.</span> Single Dimension Optimization Methods</h2>
+<div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org5cbafc7" class="outline-3">
-<h3 id="org5cbafc7">Root Finding</h3>
-<div class="outline-text-3" id="text-org5cbafc7">
+<div id="outline-container-org6cc11d5" class="outline-3">
+<h3 id="org6cc11d5"><span class="section-number-3">8.1.</span> Root Finding</h3>
+<div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li>Root finding and optimization are closely related problems</li>
 <li>Each type of problem can be converted to the other
@@ -586,20 +812,20 @@ mergeSort = <span style="color: #9A93E1;">function</span>(x) {
 <li>In both cases, you will find all the solution of the original problem, and possible and some spurious solutions that do not solve the original problem.</li>
 </ul>
 </div>
-<div id="outline-container-orgd4f510e" class="outline-4">
-<h4 id="orgd4f510e">Bisection Method</h4>
-<div class="outline-text-4" id="text-orgd4f510e">
+<div id="outline-container-org6c28682" class="outline-4">
+<h4 id="org6c28682"><span class="section-number-4">8.1.1.</span> Bisection Method</h4>
+<div class="outline-text-4" id="text-8-1-1">
 <ul class="org-ul">
 <li>Assume a continuous function \(f(x)\)</li>
 <li>The intermediate value theorem then tells use that if \(f(x)\) is positive at \(x=a\) and negative at \(x=b\) there has to be a root in between \(a\) and \(b\)</li>
 <li>Basic algorithm structure:
 <ul class="org-ul">
 <li>Start with the initial points \(a_0, b_0\) so that \(f(a_0) > 0, f(b_0) < 0\)</li>
-<li>At the midpoint: \(x_0 = (a_0 + b_0)/2\), calculate f(x_0)$</li>
+<li>At the midpoint: \(x_0 = (a_0 + b_0)/2\), calculate f(x<sub>0</sub>)$</li>
 <li>If \(f(x_0)=0\), then it is done; otherwise, one of two things happens:
 <ul class="org-ul">
 <li>\(f(a_0)f(x_0) < 0\), in which case we set \(a_1=a_0, b_1=x_0\); or</li>
-<li>\(f(a_0)f(x_0) > 0\), in which case we set $a_1=x_0, b_1=b_0</li>
+<li>\(f(a_0)f(x_0) > 0\), in which case we set $a<sub>1</sub>=x<sub>0</sub>, b<sub>1</sub>=b<sub>0</sub></li>
 </ul></li>
 <li>Set \(x_1 = (a_1 + b_1) / 2\) and calculate \(f(x_1)\)</li>
 <li>Repeat steps 3-4 until \(b_n - a_n\) is small enough</li>
@@ -609,9 +835,9 @@ mergeSort = <span style="color: #9A93E1;">function</span>(x) {
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf6b8df7" class="outline-4">
-<h4 id="orgf6b8df7">Fixed Point Iteration</h4>
-<div class="outline-text-4" id="text-orgf6b8df7">
+<div id="outline-container-org8a8adbc" class="outline-4">
+<h4 id="org8a8adbc"><span class="section-number-4">8.1.2.</span> Fixed Point Iteration</h4>
+<div class="outline-text-4" id="text-8-1-2">
 <ul class="org-ul">
 <li><b>NOTE</b>: this is not a method that is generally used in practice.</li>
 <li>Consider an equivalent equation \(f(x)=0\) represented as $g(x)=x. We refer to its solution as a <b>fixed point</b> of \(g\).</li>
@@ -627,9 +853,9 @@ mergeSort = <span style="color: #9A93E1;">function</span>(x) {
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc1da7bf" class="outline-4">
-<h4 id="orgc1da7bf">Newton-Raphson Method</h4>
-<div class="outline-text-4" id="text-orgc1da7bf">
+<div id="outline-container-orga4e255e" class="outline-4">
+<h4 id="orga4e255e"><span class="section-number-4">8.1.3.</span> Newton-Raphson Method</h4>
+<div class="outline-text-4" id="text-8-1-3">
 <ul class="org-ul">
 <li><p>
 A special way to construct the fixed point iteration
@@ -663,9 +889,9 @@ x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
 </ul>
 </div>
 </div>
-<div id="outline-container-org41053f1" class="outline-4">
-<h4 id="org41053f1">The Secant Method</h4>
-<div class="outline-text-4" id="text-org41053f1">
+<div id="outline-container-org4530698" class="outline-4">
+<h4 id="org4530698"><span class="section-number-4">8.1.4.</span> The Secant Method</h4>
+<div class="outline-text-4" id="text-8-1-4">
 <ul class="org-ul">
 <li>Discrete version of Newton-Raphson method that does not require derivatives</li>
 <li><p>
@@ -683,9 +909,9 @@ x_{n+2} = \frac{x_n f(x_{n+1}) - x_{n+1} f(x_n)}{f(x_{n+1}) - f(x_n)}
 </div>
 </div>
 </div>
-<div id="outline-container-orgcec34fe" class="outline-3">
-<h3 id="orgcec34fe">Minimization Algorithms</h3>
-<div class="outline-text-3" id="text-orgcec34fe">
+<div id="outline-container-org6209fe5" class="outline-3">
+<h3 id="org6209fe5"><span class="section-number-3">8.2.</span> Minimization Algorithms</h3>
+<div class="outline-text-3" id="text-8-2">
 <p>
 Global problems are typically very hard problems to solve. The goal is to find the lowest possible value of the function. Local minimum is a relatively easier problem to solve&#x2026; finding the smallest value within a finite neighborhood.
 </p>
@@ -720,9 +946,9 @@ A function may be costly to evaluate. The derivative of \(F\) is not easly to ev
 </ul></li>
 </ol>
 </div>
-<div id="outline-container-org588fe2c" class="outline-4">
-<h4 id="org588fe2c">Finding a bracketing interval</h4>
-<div class="outline-text-4" id="text-org588fe2c">
+<div id="outline-container-orgcda130d" class="outline-4">
+<h4 id="orgcda130d"><span class="section-number-4">8.2.1.</span> Finding a bracketing interval</h4>
+<div class="outline-text-4" id="text-8-2-1">
 <p>
 Goal: startign from two points \(a_0\) and \(b_0\), find \(a,b,c\) s.t. \(a<b<c\), \(F(b) < F(a)\) and \(F(b) < F(c)\). Given these three points, how do we select a new trial point?
 </p>
@@ -753,15 +979,280 @@ Optimal case:
 </ul>
 </div>
 </div>
+<div id="outline-container-orgaa4276b" class="outline-4">
+<h4 id="orgaa4276b"><span class="section-number-4">8.2.2.</span> Parabolic Approximation</h4>
+<div class="outline-text-4" id="text-8-2-2">
+<p>
+For a root finding problem, linear interpolation likely works better than binary search. For a minimization problem, a parabolic interpolation likely works better than golden search. <b>Key idea</b>: approximate the function as a quadratic equation (parabola). Estimate the minimal point based on parabola, and repeat the iteration. An extension of linear interpolation to the minimzation problem. Typically more efficient than golden search, but convergence is not guaranteed.
+</p>
 </div>
 </div>
-<div id="outline-container-org6c817da" class="outline-2">
-<h2 id="org6c817da">Assignments:</h2>
-<div class="outline-text-2" id="text-org6c817da">
+<div id="outline-container-org5230961" class="outline-4">
+<h4 id="org5230961"><span class="section-number-4">8.2.3.</span> Brent&rsquo;s Method (1973)</h4>
+<div class="outline-text-4" id="text-8-2-3">
+<p>
+<b>Key idea</b>: a careful mixture of golden-section search and parabolic interpolation. Predict whether parabolic interpolation would behave poorly. If so, switch to golden section search.
+</p>
+
+<p>
+<b>Features</b>: combines the reliability of the golden-section search with the efficiency of parabolic interpolation. The most widely used method for single-dimensional minimization. Does not require evaluation of derivatives. Detailed implmentation if quite complicated.
+</p>
 </div>
-<div id="outline-container-org3bd544c" class="outline-3">
-<h3 id="org3bd544c">Learning Ex. 1:</h3>
-<div class="outline-text-3" id="text-org3bd544c">
+</div>
+</div>
+</div>
+<div id="outline-container-orgcd9905d" class="outline-2">
+<h2 id="orgcd9905d"><span class="section-number-2">9.</span> Multi-dimensional Optimization</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+What is multi-dimensional oprimization?
+</p>
+
+<ul class="org-ul">
+<li>A function takes multiple variabes (or a vector) as parameters.</li>
+<li>The function still returns a sigle-dimensional value.</li>
+<li>The objective is to find a combination of parameters that minimizes the objective function.</li>
+</ul>
+
+<p>
+Why is multi-dimensional optimization challenging?
+</p>
+
+<ul class="org-ul">
+<li>The search space exponentially increases with the number of dimensions.</li>
+<li>A local minimum may not be the global minimum.</li>
+</ul>
+</div>
+<div id="outline-container-org87d902b" class="outline-3">
+<h3 id="org87d902b"><span class="section-number-3">9.1.</span> Coordinate descent</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+The idea behind coordiante descent is simple. If <i>f</i> is a <i>k</i>-dimensional function, we can minimize <i>f</i> by succesively minimzing each of the individual dimensions of <i>f</i> in a cyclic fashion, while holding the values of <i>f</i> in other dimensions fixed. In other words, this approach takes an arbitary complex <i>k</i>-dimensional problem and reduces it to a collection of <i>k</i> one-dimensional problems.
+</p>
+
+<p>
+<b>Steps:</b>
+</p>
+
+<ol class="org-ol">
+<li>Start with initial values \(x^0 = (x_1^0, \dots, x_n^0)\).</li>
+<li><p>
+Minimize one variable at a time, fixing all other variables.
+</p>
+
+\begin{equation*}
+     x_i^{k+1} = argmin_y\ F( x_1^{k+1}, \dots,  x_{i-1}^{k+1}, y,  x_{i+}^{k}, \dots,  x_n^{k})
+\end{equation*}</li>
+
+<li>Repeat by selecting the next variable to minimize until convergence.</li>
+</ol>
+
+<p>
+<b>Key features:</b>
+</p>
+
+<ul class="org-ul">
+<li>One-dimensional optimization may be used.</li>
+<li>Works well for additively seperable funcitons.</li>
+<li>May converge slowly.</li>
+<li>May not converge with specific correlation between dimensions.</li>
+</ul>
+
+<p>
+Let&rsquo;s take a look at how it works using this function:
+</p>
+
+\begin{equation*}
+        f(x,y) = x^2 + y+2 + xy
+\end{equation*}
+
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #83AFE5;">f</span> <span style="color: #7FC1CA;">&lt;-</span> <span style="color: #9A93E1;">function</span>(x, y) {
+        x^<span style="color: #7FC1CA; font-weight: bold;">2</span> + y^<span style="color: #7FC1CA; font-weight: bold;">2</span> + x * y
+}
+n <span style="color: #7FC1CA;">&lt;-</span> <span style="color: #7FC1CA; font-weight: bold;">30</span>
+xpts <span style="color: #7FC1CA;">&lt;-</span> seq(-<span style="color: #7FC1CA; font-weight: bold;">1.5</span>, <span style="color: #7FC1CA; font-weight: bold;">1.5</span>, len = n)
+ypts <span style="color: #7FC1CA;">&lt;-</span> seq(-<span style="color: #7FC1CA; font-weight: bold;">1.5</span>, <span style="color: #7FC1CA; font-weight: bold;">1.5</span>, len = n)
+gr <span style="color: #7FC1CA;">&lt;-</span> expand.grid(x = xpts, y = ypts)
+feval <span style="color: #7FC1CA;">&lt;-</span> with(gr, matrix(f(x, y), nrow = n, ncol = n))
+<span style="color: #7FC1CA;">par</span>(mar = c(<span style="color: #7FC1CA; font-weight: bold;">5</span>, <span style="color: #7FC1CA; font-weight: bold;">4</span>, <span style="color: #7FC1CA; font-weight: bold;">1</span>, <span style="color: #7FC1CA; font-weight: bold;">1</span>))
+contour(xpts, ypts, feval, nlevels = <span style="color: #7FC1CA; font-weight: bold;">20</span>, xlab = <span style="color: #7FC1CA;">"x"</span>, ylab = <span style="color: #7FC1CA;">"y"</span>)
+points(-<span style="color: #7FC1CA; font-weight: bold;">1</span>, -<span style="color: #7FC1CA; font-weight: bold;">1</span>, pch = <span style="color: #7FC1CA; font-weight: bold;">19</span>, cex = <span style="color: #7FC1CA; font-weight: bold;">2</span>)
+abline(h = -<span style="color: #7FC1CA; font-weight: bold;">1</span>)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdce5331" class="outline-3">
+<h3 id="orgdce5331"><span class="section-number-3">9.2.</span> Nelder-Mead method</h3>
+<div class="outline-text-3" id="text-9-2">
+<p>
+a.k.a downhill simplex method or amoeba methdod. This method is complicated to understand. This is another minimzation problem: we are trying to make the differences between the calculated and target value as small as possible.
+</p>
+
+<p>
+Like other minimzation methods in this section, the problem arises in many situations. Regression, hyper-parameter optimization, machine learning, etc.
+</p>
+
+<p>
+<b>The main gist:</b>
+</p>
+
+<ol class="org-ol">
+<li>Start with a collection of candidate values, the <b>Simplex</b>. The vertices will create a geometric shape with \(k+1\) corners, a triangle in \(k=2\) dimensions, a tetrahedron in \(k=3\) dimensions, so on and so forth. We will consider a triangle in a \(k=2\) dimensional space.</li>
+<li>Compute the value of each of the points, and, as a result, we are left with a current best, current worst, and current second worst position.</li>
+<li>Each iteration, the algorithm attempts to move the position of the current worst point. The movement is relatiev to the <b>Centroid</b> (center of gravity) of the other candidates. To decide what movement to take, the algorithm performs a few tests:
+
+<ul class="org-ul">
+<li><b>Reflection</b>: the algorithm tries to move the worst candidate to the other side of the centroid. Then, the <i>reflected</i> candidate is computed (a position that mirrors the worst candidate accross the centroid). If the position is better than the second worst candidate, but not better than the best, the algorithm has made an improvement: replace the worst and repeat the process.</li>
+<li><b>Expansion</b>: if the <i>reflected</i> candidate is better than the current best, then the algorithm made a move in a promising direction. It then pushes further in the same direction, and compute the <i>expanded</i> candidate. If the <i>expanded</i> candidate is even better, we take it and replace the current worst, otherwise we replace it with the <i>reflected</i> candidate and repeat.</li>
+<li>If the <i>refelcted</i> candidate is better than our current worst, but not better than our second worst, this is still a promising direction. Attempt a shorter move in the same direction: instead of expanding, a <i>contracted outside</i> candidate is computed, moving less aggressively towards the <i>reflected</i> direction. If that is better than the <i>reflected</i> candiate, we use it and repeat.</li>
+<li>If it is not an improvement, moving towards the <i>refelcted</i> direction does not help. Instead, we shrink: take the entire simplex and move every point towards teh current best candidate.</li>
+<li>Lastly, if the <i>reflected</i> candidate is even worse than the current worst, then a move is made in the opposite direction, and computed a <i>contracted inside</i> candidate. If that is an improvement over the current worst, great. Otherwise, there are no more avaialble moves to make and the simplex shrinks.</li>
+</ul></li>
+</ol>
+</div>
+<div id="outline-container-orgff8626d" class="outline-4">
+<h4 id="orgff8626d"><span class="section-number-4">9.2.1.</span> Code</h4>
+<div class="outline-text-4" id="text-9-2-1">
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #899BA6; font-weight: bold;">#</span><span style="color: #899BA6; font-weight: bold;">'</span><span style="color: #899BA6;"> Multi-dimensional Nelder-Mead</span>
+<span style="color: #899BA6; font-weight: bold;">#</span><span style="color: #899BA6; font-weight: bold;">'</span><span style="color: #899BA6;"> </span><span style="color: #9A93E1;">@param</span><span style="color: #899BA6;"> </span><span style="color: #DF8C8C;">f</span><span style="color: #899BA6;"> - Objective function to minimize</span>
+<span style="color: #899BA6; font-weight: bold;">#</span><span style="color: #899BA6; font-weight: bold;">'</span><span style="color: #899BA6;"> </span><span style="color: #9A93E1;">@param</span><span style="color: #899BA6;"> </span><span style="color: #DF8C8C;">x0</span><span style="color: #899BA6;"> - initial point to start</span>
+<span style="color: #899BA6; font-weight: bold;">#</span><span style="color: #899BA6; font-weight: bold;">'</span><span style="color: #899BA6;"> </span><span style="color: #9A93E1;">@param</span><span style="color: #899BA6;"> </span><span style="color: #DF8C8C;">tol</span><span style="color: #899BA6;"> - relative error</span>
+<span style="color: #899BA6; font-weight: bold;">#</span><span style="color: #899BA6; font-weight: bold;">'</span><span style="color: #899BA6;"> </span><span style="color: #9A93E1;">@param</span><span style="color: #899BA6;"> </span><span style="color: #DF8C8C;">max_iter</span><span style="color: #899BA6;"> - maximum iteration</span>
+<span style="color: #899BA6; font-weight: bold;">#</span><span style="color: #899BA6; font-weight: bold;">'</span><span style="color: #899BA6;"> </span><span style="color: #9A93E1;">@return</span><span style="color: #899BA6;"> A list containing the following attributes:</span>
+<span style="color: #899BA6; font-weight: bold;">#</span><span style="color: #899BA6; font-weight: bold;">'</span><span style="color: #899BA6;">    * xmin : x-coordinate of minima</span>
+<span style="color: #899BA6; font-weight: bold;">#</span><span style="color: #899BA6; font-weight: bold;">'</span><span style="color: #899BA6;">    * fmin : f(xmin)</span>
+<span style="color: #899BA6; font-weight: bold;">#</span><span style="color: #899BA6; font-weight: bold;">'</span><span style="color: #899BA6;">    * convergence : 0 if convergend, 1 otherwise</span>
+<span style="color: #899BA6; font-weight: bold;">#</span><span style="color: #899BA6; font-weight: bold;">'</span><span style="color: #899BA6;">    * iter : number of iterations</span>
+<span style="color: #83AFE5;">Nelder.Mead</span> <span style="color: #7FC1CA;">&lt;-</span> <span style="color: #9A93E1;">function</span>(f, x0, tol = 1e-<span style="color: #7FC1CA; font-weight: bold;">10</span>, max_iter = <span style="color: #7FC1CA; font-weight: bold;">1000</span>,...){
+  d <span style="color: #7FC1CA;">&lt;-</span> length(x0)   <span style="color: #899BA6;"># </span><span style="color: #899BA6;">d:dimension of the simplex</span>
+  X <span style="color: #7FC1CA;">&lt;-</span> matrix(x0,nrow=d,ncol=d+<span style="color: #7FC1CA; font-weight: bold;">1</span>)    <span style="color: #899BA6;"># </span><span style="color: #899BA6;">set d+1 simplex points</span>
+  X[,-(d+<span style="color: #7FC1CA; font-weight: bold;">1</span>)] <span style="color: #7FC1CA;">&lt;-</span> X[,-(d+<span style="color: #7FC1CA; font-weight: bold;">1</span>)] + diag(d) <span style="color: #899BA6;"># </span><span style="color: #899BA6;">create a simplex</span>
+  Y <span style="color: #7FC1CA;">&lt;-</span> apply(X,<span style="color: #7FC1CA; font-weight: bold;">2</span>,f,...)   <span style="color: #899BA6;"># </span><span style="color: #899BA6;">evaluate function at each vertex</span>
+
+  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">initialize key variables as NULL</span>
+  idx_max <span style="color: #7FC1CA;">&lt;-</span> <span style="color: #A8CE93;">NULL</span>; idx_min <span style="color: #7FC1CA;">&lt;-</span> <span style="color: #A8CE93;">NULL</span>; idx_2ndmax <span style="color: #7FC1CA;">&lt;-</span> <span style="color: #A8CE93;">NULL</span> <span style="color: #899BA6;">## </span><span style="color: #899BA6;">extremes</span>
+  mid_point <span style="color: #7FC1CA;">&lt;-</span> <span style="color: #A8CE93;">NULL</span>; tru_line <span style="color: #7FC1CA;">&lt;-</span> <span style="color: #A8CE93;">NULL</span> <span style="color: #899BA6;">## </span><span style="color: #899BA6;">mid-point and tru-line</span>
+
+  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">Function to update the extremes</span>
+  <span style="color: #83AFE5;">update.extremes</span> <span style="color: #7FC1CA;">&lt;-</span> <span style="color: #9A93E1;">function</span>(){
+    <span style="color: #899BA6;">## </span><span style="color: #899BA6;">initialize the worst, 2nd-worst, and the best points</span>
+    <span style="color: #899BA6;">## </span><span style="color: #899BA6;">note that global assignment was used to update the variables</span>
+    <span style="color: #899BA6;">## </span><span style="color: #899BA6;">outside the function</span>
+    <span style="color: #9A93E1;">if</span>(Y[<span style="color: #7FC1CA; font-weight: bold;">1</span>] &gt; Y[<span style="color: #7FC1CA; font-weight: bold;">2</span>]){
+      idx_max <span style="color: #7FC1CA;">&lt;&lt;-</span> <span style="color: #7FC1CA; font-weight: bold;">1</span>; idx_min <span style="color: #7FC1CA;">&lt;&lt;-</span> <span style="color: #7FC1CA; font-weight: bold;">2</span>; idx_2ndmax <span style="color: #7FC1CA;">&lt;&lt;-</span> <span style="color: #7FC1CA; font-weight: bold;">2</span> <span style="color: #899BA6;">## </span><span style="color: #899BA6;">note: global assignment</span>
+    } <span style="color: #9A93E1;">else</span>{
+      idx_max <span style="color: #7FC1CA;">&lt;&lt;-</span> <span style="color: #7FC1CA; font-weight: bold;">2</span>; idx_2ndmax <span style="color: #7FC1CA;">&lt;&lt;-</span> <span style="color: #7FC1CA; font-weight: bold;">1</span>; idx_min <span style="color: #7FC1CA;">&lt;&lt;-</span> <span style="color: #7FC1CA; font-weight: bold;">1</span> <span style="color: #899BA6;">## </span><span style="color: #899BA6;">note: global assignment</span>
+    }
+    <span style="color: #9A93E1;">if</span>(d&gt;<span style="color: #7FC1CA; font-weight: bold;">1</span>){ <span style="color: #899BA6;">## </span><span style="color: #899BA6;">update the worsr, 2nd-worst, and the best</span>
+      <span style="color: #9A93E1;">for</span>(i <span style="color: #9A93E1;">in</span> <span style="color: #7FC1CA; font-weight: bold;">3</span>:(d+<span style="color: #7FC1CA; font-weight: bold;">1</span>)){
+        <span style="color: #9A93E1;">if</span>(Y[i] &lt;= Y[idx_min]){  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">update the best point</span>
+          idx_min <span style="color: #7FC1CA;">&lt;&lt;-</span> i
+        } <span style="color: #9A93E1;">else</span> <span style="color: #9A93E1;">if</span>(Y[i] &gt; Y[idx_max]){ <span style="color: #899BA6;">## </span><span style="color: #899BA6;">update the worst and 2nd-worst points</span>
+          idx_2ndmax <span style="color: #7FC1CA;">&lt;&lt;-</span> idx_max; idx_max <span style="color: #7FC1CA;">&lt;&lt;-</span> i
+        } <span style="color: #9A93E1;">else</span> <span style="color: #9A93E1;">if</span>(Y[i] &gt; Y[idx_2ndmax]){ <span style="color: #899BA6;">## </span><span style="color: #899BA6;">update the 2nd-worst point</span>
+          idx_2ndmax <span style="color: #7FC1CA;">&lt;&lt;-</span> i
+        }
+      }
+    }
+  }
+
+  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">Function to update the mid-point and the tru-line</span>
+  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">used before performing reflection/expansion/contraction</span>
+  <span style="color: #83AFE5;">update.mid.point</span> <span style="color: #7FC1CA;">&lt;-</span> <span style="color: #9A93E1;">function</span>(){
+    mid_point <span style="color: #7FC1CA;">&lt;&lt;-</span> apply(X[,-idx_max,drop=<span style="color: #A8CE93;">FALSE</span>],<span style="color: #7FC1CA; font-weight: bold;">1</span>,mean)
+    tru_line <span style="color: #7FC1CA;">&lt;&lt;-</span> X[,idx_max] - mid_point
+  }
+
+  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">Function update the next point (reflection, expansion, contraction)</span>
+  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">the worst point is replaced with the newly evaluated point if improved</span>
+  <span style="color: #83AFE5;">update.next.point</span> <span style="color: #7FC1CA;">&lt;-</span> <span style="color: #9A93E1;">function</span>(step_scale){
+    next_point <span style="color: #7FC1CA;">&lt;-</span> mid_point + tru_line*step_scale
+    Y_next <span style="color: #7FC1CA;">&lt;-</span> f(next_point,...)   <span style="color: #899BA6;">## </span><span style="color: #899BA6;">evaluate the function value</span>
+    <span style="color: #9A93E1;">if</span>(Y_next &lt; Y[idx_max]){      <span style="color: #899BA6;">## </span><span style="color: #899BA6;">if improved over the worst point</span>
+      X[,idx_max] <span style="color: #7FC1CA;">&lt;&lt;-</span> next_point  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">replace the worst point</span>
+      Y[idx_max] <span style="color: #7FC1CA;">&lt;&lt;-</span> Y_next       <span style="color: #899BA6;">## </span><span style="color: #899BA6;">replace the function value</span>
+      <span style="color: #9A93E1;">return</span>(<span style="color: #A8CE93;">TRUE</span>)                <span style="color: #899BA6;">## </span><span style="color: #899BA6;">indicate that a point was replaced</span>
+    } <span style="color: #9A93E1;">else</span>{
+      <span style="color: #9A93E1;">return</span>(<span style="color: #A8CE93;">FALSE</span>)               <span style="color: #899BA6;">## </span><span style="color: #899BA6;">indicate that no point was replaced</span>
+    }
+  }
+
+  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">Function for multiple contaction</span>
+  <span style="color: #83AFE5;">contract.simplex</span> <span style="color: #7FC1CA;">&lt;-</span> <span style="color: #9A93E1;">function</span>(){
+    X[,-idx_min] <span style="color: #7FC1CA;">&lt;&lt;-</span> <span style="color: #7FC1CA; font-weight: bold;">0.5</span>*(X[,-idx_min] + X[,idx_min])
+    Y[-idx_min] <span style="color: #7FC1CA;">&lt;&lt;-</span> apply(X[,-idx_min],<span style="color: #7FC1CA; font-weight: bold;">2</span>,f,...)
+  }
+
+  <span style="color: #899BA6;">#########################################</span>
+  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">the main part of Nelder-Mead algorithm</span>
+  <span style="color: #899BA6;">#########################################</span>
+  convergence = <span style="color: #7FC1CA; font-weight: bold;">1</span>
+  <span style="color: #9A93E1;">for</span>(iter <span style="color: #9A93E1;">in</span> <span style="color: #7FC1CA; font-weight: bold;">1</span>:max_iter){
+    update.extremes()  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">update worst, 2nd-worst, and the best point</span>
+
+    <span style="color: #899BA6;">## </span><span style="color: #899BA6;">check convergence by comparing the range of the function values</span>
+    <span style="color: #9A93E1;">if</span>(abs(Y[idx_max]-Y[idx_min]) &lt;= tol*(abs(Y[idx_max]) + abs(Y[idx_min]) +tol)){
+      convergence = <span style="color: #7FC1CA; font-weight: bold;">0</span>  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">converged</span>
+      <span style="color: #9A93E1;">break</span>            <span style="color: #899BA6;">## </span><span style="color: #899BA6;">break the loop</span>
+    }
+    update.mid.point() <span style="color: #899BA6;">## </span><span style="color: #899BA6;">update mid-point, tru-line</span>
+
+    update.next.point(-<span style="color: #7FC1CA; font-weight: bold;">1.0</span>)       <span style="color: #899BA6;">## </span><span style="color: #899BA6;">reflection</span>
+    <span style="color: #9A93E1;">if</span>(Y[idx_max] &lt; Y[idx_min]){  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">if reflection generated a new minima</span>
+      update.next.point(-<span style="color: #7FC1CA; font-weight: bold;">2.0</span>)     <span style="color: #899BA6;">## </span><span style="color: #899BA6;">perform expansion</span>
+    } <span style="color: #9A93E1;">else</span> <span style="color: #9A93E1;">if</span>(Y[idx_max] &gt;= Y[idx_2ndmax]){
+      <span style="color: #9A93E1;">if</span>(!update.next.point(<span style="color: #7FC1CA; font-weight: bold;">0.5</span>)){  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">perform 1-d contraction</span>
+        contract.simplex()          <span style="color: #899BA6;">## </span><span style="color: #899BA6;">if contraction failed, perform multiple contraction</span>
+      }
+    }
+  } <span style="color: #899BA6;">## </span><span style="color: #899BA6;">repeat until convergence</span>
+
+  <span style="color: #9A93E1;">return</span>(list(xmin=X[,idx_min],  <span style="color: #899BA6;">## </span><span style="color: #899BA6;">return the minima</span>
+              fmin=Y[idx_min],   <span style="color: #899BA6;">## </span><span style="color: #899BA6;">return the function value at the minima</span>
+              convergence=convergence, <span style="color: #899BA6;">## </span><span style="color: #899BA6;">return convergence indicator</span>
+              iter=iter          <span style="color: #899BA6;">## </span><span style="color: #899BA6;">return the number of iterations</span>
+        ))
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org9506615" class="outline-3">
+<h3 id="org9506615"><span class="section-number-3">9.3.</span> Gradient Descent</h3>
+<div class="outline-text-3" id="text-9-3">
+<p>
+Gradient descent is an iterative first-order optimization algorithm used to find local minimum/maximum of a fiven function. Very commonly used in machine learning and deep learning to minimize cost/loss function.
+</p>
+
+<p>
+What does it mean to be first-oder? It uses gradient.
+</p>
+
+\begin{equation*}
+        x_{n+1} = x_n-\gamme_n \delta F(x_n)
+\end{equation*}
+
+<p>
+The step size, denoted by \(\gamma_n\) can be set to a constant, or determined using a line search (i.e. golden section search).
+</p>
+
+\begin{equation*}
+        \gamma_n = \frac{ |(x_n-x_{n-1})^T{\deltaF(X_n) - \deltaF(x_{n-1})}| }{|| \delta F(X_n) - \delta(x_{n-1}) ||^2}
+\end{equation*}
+</div>
+</div>
+</div>
+<div id="outline-container-org872bf7c" class="outline-2">
+<h2 id="org872bf7c"><span class="section-number-2">10.</span> Assignments:</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org2f87bc8" class="outline-3">
+<h3 id="org2f87bc8"><span class="section-number-3">10.1.</span> Learning Ex. 1:</h3>
+<div class="outline-text-3" id="text-10-1">
 <ul class="org-ul">
 <li>`intToBits()` converts to 64-bit by default AND in reversed order. In order to complete this task we need to reverse the order of the vector and remove every even element.</li>
 <li>This can be completed to satisfaction with brute force by following this logic:
@@ -774,9 +1265,9 @@ Optimal case:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb42dec5" class="outline-3">
-<h3 id="orgb42dec5">Code</h3>
-<div class="outline-text-3" id="text-orgb42dec5">
+<div id="outline-container-org04f9556" class="outline-3">
+<h3 id="org04f9556"><span class="section-number-3">10.2.</span> Code</h3>
+<div class="outline-text-3" id="text-10-2">
 <div class="org-src-container">
 <pre class="src src-R"><span style="color: #83AFE5;">int2BinaryStr</span> <span style="color: #7FC1CA;">&lt;-</span> <span style="color: #9A93E1;">function</span>(n) {
   <span style="color: #9A93E1;">if</span> (!is.numeric(n) || floor(n) != n || n &lt; -<span style="color: #7FC1CA; font-weight: bold;">2</span>^<span style="color: #7FC1CA; font-weight: bold;">31</span> || n &gt; <span style="color: #7FC1CA; font-weight: bold;">2</span>^<span style="color: #7FC1CA; font-weight: bold;">31</span> - <span style="color: #7FC1CA; font-weight: bold;">1</span>) {
@@ -790,25 +1281,29 @@ Optimal case:
 </pre>
 </div>
 </div>
-<div id="outline-container-org6e842cc" class="outline-4">
-<h4 id="org6e842cc">Code Breakdown</h4>
-<div class="outline-text-4" id="text-org6e842cc">
+<div id="outline-container-org34e8a85" class="outline-4">
+<h4 id="org34e8a85"><span class="section-number-4">10.2.1.</span> Code Breakdown</h4>
+<div class="outline-text-4" id="text-10-2-1">
 <ul class="org-ul">
 <li>r{!is.numeric(n)}: checking if number is not a numeric. Base R treats numeric values as 64-bit</li>
 <li>r{floor(n) != n}: checking if n is not an integer</li>
-<li>r{n &lt; -2^32 || n &gt; 2^31}: checks if n is within the range of 32-bit integer values</li>
+<li>r{n &lt; -2<sup>32</sup> || n &gt; 2<sup>31</sup>}: checks if n is within the range of 32-bit integer values</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org2d6555f" class="outline-3">
-<h3 id="org2d6555f">Learning Ex. 2:</h3>
+<div id="outline-container-org11189bd" class="outline-3">
+<h3 id="org11189bd"><span class="section-number-3">10.3.</span> Learning Ex. 2:</h3>
 </div>
 
-<div id="outline-container-orge667cf4" class="outline-3">
-<h3 id="orge667cf4">Code</h3>
+<div id="outline-container-org9a63909" class="outline-3">
+<h3 id="org9a63909"><span class="section-number-3">10.4.</span> Code</h3>
 </div>
 </div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Pete Pritchard</p>
+<p class="date">Created: 2024-10-09 Wed 11:46</p>
 </div>
 </body>
 </html>

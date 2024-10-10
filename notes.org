@@ -2,9 +2,9 @@
 #+description: Organization File For BIOSTATS 615 @ The University of Michigan, Ann Arbor
 #+author: Pete Pritchard
 #+LANGUAGE:  en
-#+STARTUP:   content showstars indent inlineimages hideblocks
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="custom.css"/>
-#+OPTIONS:   toc:2 html-scripts:nil num:nil html-postamble:nil html-style:nil ^:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+#+LATEX_HEADER: \usepackage{amsmath}
+
 * Course Logistics
 
 ** Class Times:
@@ -409,6 +409,215 @@ Optimal case:
 
 + The two possible next search intervals have the same length
 + The proportion of reducing the interval lengths remains the same over iterations
+
+*** Parabolic Approximation
+
+For a root finding problem, linear interpolation likely works better than binary search. For a minimization problem, a parabolic interpolation likely works better than golden search. *Key idea*: approximate the function as a quadratic equation (parabola). Estimate the minimal point based on parabola, and repeat the iteration. An extension of linear interpolation to the minimzation problem. Typically more efficient than golden search, but convergence is not guaranteed.
+
+*** Brent's Method (1973)
+
+*Key idea*: a careful mixture of golden-section search and parabolic interpolation. Predict whether parabolic interpolation would behave poorly. If so, switch to golden section search.
+
+*Features*: combines the reliability of the golden-section search with the efficiency of parabolic interpolation. The most widely used method for single-dimensional minimization. Does not require evaluation of derivatives. Detailed implmentation if quite complicated.
+
+
+* Multi-dimensional Optimization
+
+What is multi-dimensional oprimization?
+
+- A function takes multiple variabes (or a vector) as parameters.
+- The function still returns a sigle-dimensional value.
+- The objective is to find a combination of parameters that minimizes the objective function.
+
+Why is multi-dimensional optimization challenging?
+
+- The search space exponentially increases with the number of dimensions.
+- A local minimum may not be the global minimum.
+
+** Coordinate descent
+
+The idea behind coordiante descent is simple. If /f/ is a /k/-dimensional function, we can minimize /f/ by succesively minimzing each of the individual dimensions of /f/ in a cyclic fashion, while holding the values of /f/ in other dimensions fixed. In other words, this approach takes an arbitary complex /k/-dimensional problem and reduces it to a collection of /k/ one-dimensional problems.
+
+*Steps:*
+
+1. Start with initial values $x^0 = (x_1^0, \dots, x_n^0)$.
+2. Minimize one variable at a time, fixing all other variables.
+
+   \begin{equation*}
+        x_i^{k+1} = argmin_y\ F( x_1^{k+1}, \dots,  x_{i-1}^{k+1}, y,  x_{i+}^{k}, \dots,  x_n^{k})
+   \end{equation*}
+
+3. Repeat by selecting the next variable to minimize until convergence.
+
+*Key features:*
+
+- One-dimensional optimization may be used.
+- Works well for additively seperable funcitons.
+- May converge slowly.
+- May not converge with specific correlation between dimensions.
+
+Let's take a look at how it works using this function:
+
+\begin{equation*}
+        f(x,y) = x^2 + y+2 + xy
+\end{equation*}
+
+#+BEGIN_SRC R :results output graphics :file coordinate-descent.png :width 600 :height 400
+f <- function(x, y) {
+        x^2 + y^2 + x * y
+}
+n <- 30
+xpts <- seq(-1.5, 1.5, len = n)
+ypts <- seq(-1.5, 1.5, len = n)
+gr <- expand.grid(x = xpts, y = ypts)
+feval <- with(gr, matrix(f(x, y), nrow = n, ncol = n))
+par(mar = c(5, 4, 1, 1))
+contour(xpts, ypts, feval, nlevels = 20, xlab = "x", ylab = "y")
+points(-1, -1, pch = 19, cex = 2)
+abline(h = -1)
+#+END_SRC
+
+#+RESULTS:
+
+
+** Nelder-Mead method
+
+a.k.a downhill simplex method or amoeba methdod. This method is complicated to understand. This is another minimzation problem: we are trying to make the differences between the calculated and target value as small as possible.
+
+Like other minimzation methods in this section, the problem arises in many situations. Regression, hyper-parameter optimization, machine learning, etc.
+
+*The main gist:*
+
+1. Start with a collection of candidate values, the *Simplex*. The vertices will create a geometric shape with $k+1$ corners, a triangle in $k=2$ dimensions, a tetrahedron in $k=3$ dimensions, so on and so forth. We will consider a triangle in a $k=2$ dimensional space.
+2. Compute the value of each of the points, and, as a result, we are left with a current best, current worst, and current second worst position.
+3. Each iteration, the algorithm attempts to move the position of the current worst point. The movement is relatiev to the *Centroid* (center of gravity) of the other candidates. To decide what movement to take, the algorithm performs a few tests:
+
+   - *Reflection*: the algorithm tries to move the worst candidate to the other side of the centroid. Then, the /reflected/ candidate is computed (a position that mirrors the worst candidate accross the centroid). If the position is better than the second worst candidate, but not better than the best, the algorithm has made an improvement: replace the worst and repeat the process.
+   - *Expansion*: if the /reflected/ candidate is better than the current best, then the algorithm made a move in a promising direction. It then pushes further in the same direction, and compute the /expanded/ candidate. If the /expanded/ candidate is even better, we take it and replace the current worst, otherwise we replace it with the /reflected/ candidate and repeat.
+   - If the /refelcted/ candidate is better than our current worst, but not better than our second worst, this is still a promising direction. Attempt a shorter move in the same direction: instead of expanding, a /contracted outside/ candidate is computed, moving less aggressively towards the /reflected/ direction. If that is better than the /reflected/ candiate, we use it and repeat.
+   - If it is not an improvement, moving towards the /refelcted/ direction does not help. Instead, we shrink: take the entire simplex and move every point towards teh current best candidate.
+   - Lastly, if the /reflected/ candidate is even worse than the current worst, then a move is made in the opposite direction, and computed a /contracted inside/ candidate. If that is an improvement over the current worst, great. Otherwise, there are no more avaialble moves to make and the simplex shrinks.
+
+*** Code
+
+#+BEGIN_SRC R
+#' Multi-dimensional Nelder-Mead
+#' @param f - Objective function to minimize
+#' @param x0 - initial point to start
+#' @param tol - relative error
+#' @param max_iter - maximum iteration
+#' @return A list containing the following attributes:
+#'    * xmin : x-coordinate of minima
+#'    * fmin : f(xmin)
+#'    * convergence : 0 if convergend, 1 otherwise
+#'    * iter : number of iterations
+Nelder.Mead <- function(f, x0, tol = 1e-10, max_iter = 1000,...){
+  d <- length(x0)   # d:dimension of the simplex
+  X <- matrix(x0,nrow=d,ncol=d+1)    # set d+1 simplex points
+  X[,-(d+1)] <- X[,-(d+1)] + diag(d) # create a simplex
+  Y <- apply(X,2,f,...)   # evaluate function at each vertex
+
+  ## initialize key variables as NULL
+  idx_max <- NULL; idx_min <- NULL; idx_2ndmax <- NULL ## extremes
+  mid_point <- NULL; tru_line <- NULL ## mid-point and tru-line
+
+  ## Function to update the extremes
+  update.extremes <- function(){
+    ## initialize the worst, 2nd-worst, and the best points
+    ## note that global assignment was used to update the variables
+    ## outside the function
+    if(Y[1] > Y[2]){
+      idx_max <<- 1; idx_min <<- 2; idx_2ndmax <<- 2 ## note: global assignment
+    } else{
+      idx_max <<- 2; idx_2ndmax <<- 1; idx_min <<- 1 ## note: global assignment
+    }
+    if(d>1){ ## update the worsr, 2nd-worst, and the best
+      for(i in 3:(d+1)){
+        if(Y[i] <= Y[idx_min]){  ## update the best point
+          idx_min <<- i
+        } else if(Y[i] > Y[idx_max]){ ## update the worst and 2nd-worst points
+          idx_2ndmax <<- idx_max; idx_max <<- i
+        } else if(Y[i] > Y[idx_2ndmax]){ ## update the 2nd-worst point
+          idx_2ndmax <<- i
+        }
+      }
+    }
+  }
+
+  ## Function to update the mid-point and the tru-line
+  ## used before performing reflection/expansion/contraction
+  update.mid.point <- function(){
+    mid_point <<- apply(X[,-idx_max,drop=FALSE],1,mean)
+    tru_line <<- X[,idx_max] - mid_point
+  }
+
+  ## Function update the next point (reflection, expansion, contraction)
+  ## the worst point is replaced with the newly evaluated point if improved
+  update.next.point <- function(step_scale){
+    next_point <- mid_point + tru_line*step_scale
+    Y_next <- f(next_point,...)   ## evaluate the function value
+    if(Y_next < Y[idx_max]){      ## if improved over the worst point
+      X[,idx_max] <<- next_point  ## replace the worst point
+      Y[idx_max] <<- Y_next       ## replace the function value
+      return(TRUE)                ## indicate that a point was replaced
+    } else{
+      return(FALSE)               ## indicate that no point was replaced
+    }
+  }
+
+  ## Function for multiple contaction
+  contract.simplex <- function(){
+    X[,-idx_min] <<- 0.5*(X[,-idx_min] + X[,idx_min])
+    Y[-idx_min] <<- apply(X[,-idx_min],2,f,...)
+  }
+
+  #########################################
+  ## the main part of Nelder-Mead algorithm
+  #########################################
+  convergence = 1
+  for(iter in 1:max_iter){
+    update.extremes()  ## update worst, 2nd-worst, and the best point
+
+    ## check convergence by comparing the range of the function values
+    if(abs(Y[idx_max]-Y[idx_min]) <= tol*(abs(Y[idx_max]) + abs(Y[idx_min]) +tol)){
+      convergence = 0  ## converged
+      break            ## break the loop
+    }
+    update.mid.point() ## update mid-point, tru-line
+
+    update.next.point(-1.0)       ## reflection
+    if(Y[idx_max] < Y[idx_min]){  ## if reflection generated a new minima
+      update.next.point(-2.0)     ## perform expansion
+    } else if(Y[idx_max] >= Y[idx_2ndmax]){
+      if(!update.next.point(0.5)){  ## perform 1-d contraction
+        contract.simplex()          ## if contraction failed, perform multiple contraction
+      }
+    }
+  } ## repeat until convergence
+
+  return(list(xmin=X[,idx_min],  ## return the minima
+              fmin=Y[idx_min],   ## return the function value at the minima
+              convergence=convergence, ## return convergence indicator
+              iter=iter          ## return the number of iterations
+        ))
+}
+#+END_SRC
+
+** Gradient Descent
+
+Gradient descent is an iterative first-order optimization algorithm used to find local minimum/maximum of a fiven function. Very commonly used in machine learning and deep learning to minimize cost/loss function.
+
+What does it mean to be first-oder? It uses gradient.
+
+\begin{equation*}
+        x_{n+1} = x_n-\gamme_n \delta F(x_n)
+\end{equation*}
+
+The step size, denoted by $\gamma_n$ can be set to a constant, or determined using a line search (i.e. golden section search).
+
+\begin{equation*}
+        \gamma_n = \frac{ |(x_n-x_{n-1})^T{\deltaF(X_n) - \deltaF(x_{n-1})}| }{|| \delta F(X_n) - \delta(x_{n-1}) ||^2}
+\end{equation*}
 
 
 * Assignments:
