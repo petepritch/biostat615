@@ -656,6 +656,20 @@ If $f:X \rightarrow R_{+}$ be the target density, Simulating, $X \sim f(x)$, is 
         (X,U) \sim Unif{(x,u):x\inX, 0<u<f(x)}
 \end{equation}
 
+*Proof:* we can write
+
+\begin{equation}
+        f(x) = \int_{0}^{f(x)}du
+\end{equation}
+
+Thus, /f/ appears as the marginal density in X of the joint distribution,
+
+\begin{equation}
+        (X,U) \sim Unif{(x,u):x\inX, 0<u<f(x)}
+\end{equation}
+
+
+
 
 * Assignments:
 
